@@ -6,6 +6,7 @@ Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-st
 ## manifests
 - ~~[MetalLB (LoadBalancer)](https://metallb.universe.tf/installation/#installation-by-manifest)~~
 - [ArgoCD (GitOps)](https://argo-cd.readthedocs.io/en/stable/getting_started)
+- [KEDA (ScaledObject)](https://keda.sh/docs/2.11/deploy/#yaml)
 
 ## reference
 - [Kubernetes クラスタに Argo CD をインストールして動かす - Zenn](https://zenn.dev/kou_pg_0131/articles/argocd-getting-started)
