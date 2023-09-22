@@ -1,0 +1,14 @@
+# TCPShield から BungeeCord へと接続を受け取るためのサービス設定
+apiVersion: v1
+kind: Service
+metadata:
+  name: velocity
+spec:
+  type: LoadBalancer
+  ports:
+    - name: velo
+      port: 25565
+      protocol: TCP
+      targetPort: velocity
+  selector:
+    app: velocity
