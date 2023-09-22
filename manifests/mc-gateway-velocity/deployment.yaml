@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: velocity
+  name: velocity
+  # We wish this deployment to be reloaded
+  # when "velocity-config" ConfigMap are updated
+  annotations:
+    configmap.reloader.stakater.com/reload: "velocity-config"
+spec:
+  # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
+  # 参考: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#replicas
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: velocity
+  template:
+    metadata:
+      labels:
+        app: velocity
+    spec:
+      initContainers:
+        - name: server-icon-downloader
+          image: busybox:1.36.1
+          env:
+            - name: SERVER_ICON_URL
+              # https://github.com/GiganticMinecraft/branding/blob/01438e6d18c3a2824e39e73354ab4105c9e8a89c/server-icon.png
+              value: https://raw.githubusercontent.com/GiganticMinecraft/branding/01438e6d18c3a2824e39e73354ab4105c9e8a89c/server-icon.png
+          volumeMounts:
+            - name: server-icon-download-volume
+              mountPath: /root/server-icon-download
+          command:
+            - "sh"
+            - "-c"
+            - 'wget -O /root/server-icon-download/server-icon.png "${SERVER_ICON_URL}"'
+        - name: jmx-exporter-downloader
+          image: busybox:1.36.1
+          env:
+            - name: JMX_EXPORTER_URL
+              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar"
+          volumeMounts:
+            - name: jmx-exporter-download-volume
+              mountPath: /root/jmx-exporter-download
+          command:
+            - "sh"
+            - "-c"
+            - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
+
+      containers:
+        - resources:
+            requests:
+              memory: 768Mi
+          env:
+            - name: MEMORY
+              value: 768m
+            - name: TYPE
+              value: VELOCITY
+          image: itzg/bungeecord:java17-2022.4.1
+          name: velocity
+          ports:
+            - containerPort: 25577
+              name: velocity
+          startupProbe:
+            tcpSocket:
+              port: 25577
+            # 最大120秒待つ
+            failureThreshold: 6
+            periodSeconds: 20
+          volumeMounts:
+            # itzg/bungeecord は /config に設定ファイルをマウントしておけばコピーをしてくれる。
+            # 環境変数の置き換えはPrefix等の設定が必要なので、必要になったら設定するように。
+            # https://github.com/itzg/docker-bungeecord/tree/9113d93882d1945d5469141b77eb922233842be9#volumes
+            - name: velocity-config
+              mountPath: /config/config.yml
+              subPath: config.yml
+            # 普通にマウントすると、auto-update (常に最新のvolume内容がコンテナ内から見える) の挙動を
+            # 提供するために symlink による一時ディレクトリがマウントされることになるが、
+            # itzg/bungeecord が利用するファイル同期の仕組み (itzg/mc-image-helper) は
+            # symlink を展開してしまうため、設定ファイルのパスが壊れてしまう。
+            #
+            # subPathを利用してマウントすればsymlinkが作られることを回避できるためそのようにしている。
+            # 参考: https://stackoverflow.com/a/63114800
+            # 参考: https://stackoverflow.com/a/50687707
+      volumes:
+        - name: bungeecord-config
+          configMap:
+            name: bungeecord-config
