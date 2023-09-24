@@ -46,8 +46,11 @@ spec:
           image: itzg/bungeecord:java17-2022.4.1
           name: velocity
           ports:
-            - containerPort: 25577
-              name: velocity
+            - name: velocity
+              containerPort: 25577
+            - name: poteto
+              port: 2556525565
+              targetPort: mc-server-poteto
           startupProbe:
             tcpSocket:
               port: 25577
