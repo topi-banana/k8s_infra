@@ -20,20 +20,20 @@ spec:
       labels:
         app: velocity
     spec:
-      initContainers:
-        - name: velocity-config-downloader
-          image: busybox:1.36.1
-          env:
-            - name: URL
-              value: https://raw.githubusercontent.com/topi-banana/k8s_infra/main/manifests/mc-gateway-velocity/config/velocity.toml
-          volumeMounts:
-            - name: velocity-config
-              mountPath: /root/download/velocity.toml
-              subPath: velocity.toml
-          command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/download/config.yml "${URL}"'
+      # initContainers:
+      #   - name: velocity-config-downloader
+      #     image: busybox:1.36.1
+      #     env:
+      #       - name: URL
+      #         value: https://raw.githubusercontent.com/topi-banana/k8s_infra/main/manifests/mc-gateway-velocity/config/velocity.toml
+      #     volumeMounts:
+      #       - name: velocity-config
+      #         mountPath: /root/download/velocity.toml
+      #         subPath: velocity.toml
+      #     command:
+      #       - "sh"
+      #       - "-c"
+      #       - 'wget -O /root/download/config.yml "${URL}"'
       containers:
         - resources:
             requests:
