@@ -49,7 +49,7 @@ spec:
             - name: velocity
               containerPort: 25577
             - name: poteto
-              port: 2556525565
+              containerPort: 25565
               targetPort: mc-server-poteto
           startupProbe:
             tcpSocket:
