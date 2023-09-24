@@ -37,7 +37,7 @@ data:
     #                  unable to implement network level firewalling (on a shared host).
     # - "modern":      Forward player IPs and UUIDs as part of the login process using
     #                  Velocity's native forwarding. Only applicable for Minecraft 1.13 or higher.
-    player-info-forwarding-mode = "NONE"
+    player-info-forwarding-mode = "MODERN"
     
     # If you are using modern or BungeeGuard IP forwarding, configure a unique secret here.
     forwarding-secret = ""
@@ -71,25 +71,25 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "127.0.0.1:30066"
-    factions = "127.0.0.1:30067"
-    minigames = "127.0.0.1:30068"
+    #lobby = "127.0.0.1:30066"
+    tikiba = "127.0.0.1:25565"
+    poteto = "127.0.0.1:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
-    try = [
-      "lobby"
-    ]
+    #try = [
+    #  "lobby"
+    #]
     
     [forced-hosts]
     # Configure your forced hosts here.
-    "lobby.example.com" = [
-      "lobby"
+    #"topi-banana.com" = [
+    #  "lobby"
+    #]
+    "tikiba.topi-banana.com" = [
+      "tikiba"
     ]
-    "factions.example.com" = [
-      "factions"
-    ]
-    "minigames.example.com" = [
-      "minigames"
+    "poteto.topi-banana.com" = [
+      "poteto"
     ]
     
     [advanced]
