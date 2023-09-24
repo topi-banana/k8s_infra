@@ -4,7 +4,7 @@ metadata:
   name: velocity-config
 data:
   params.txt: |-
-    config.yml: |
+    velocity.toml: |
       # Config version. Do not change this
       config-version = "1.0"
       
