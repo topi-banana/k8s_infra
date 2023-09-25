@@ -53,6 +53,8 @@ spec:
           env:
             - name: EULA
               value: "TRUE"
+            - name: MEMORY
+              value: 4G
             - name: DIFFICULTY
               value: "hard"
             - name: MODE
