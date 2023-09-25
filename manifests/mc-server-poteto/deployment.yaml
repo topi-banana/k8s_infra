@@ -50,7 +50,7 @@ spec:
           name: mc-server-poteto
           ports:
             - containerPort: 25565
-              name: mc-server-poteto
+              name: mc-poteto
           startupProbe:
             tcpSocket:
               port: 25565
