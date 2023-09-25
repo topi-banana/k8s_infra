@@ -64,6 +64,9 @@ spec:
             - name: velocity-config
               mountPath: /config/velocity.toml
               subPath: velocity.toml
+            - name: velocity-config
+              mountPath: /config/forwarding.secret
+              subPath: forwarding.secret
             # 普通にマウントすると、auto-update (常に最新のvolume内容がコンテナ内から見える) の挙動を
             # 提供するために symlink による一時ディレクトリがマウントされることになるが、
             # itzg/bungeecord が利用するファイル同期の仕組み (itzg/mc-image-helper) は
