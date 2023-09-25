@@ -1,24 +1,24 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mc-server-poteto-svc
+  name: mc-server-tikiba-svc
 spec:
   selector:
-    app: mc-server-poteto
+    app: mc-server-tikiba
   ports:
   - port: 25565
-    targetPort: mc-poteto
+    targetPort: mc-tikiba
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: mc-server-poteto
-  name: mc-server-poteto
+    app: mc-server-tikiba
+  name: mc-server-tikiba
   # We wish this deployment to be reloaded
   # when "velocity-config" ConfigMap are updated
   annotations:
-    configmap.reloader.stakater.com/reload: "mc-server-poteto-config"
+    configmap.reloader.stakater.com/reload: "mc-server-tikiba-config"
 spec:
   replicas: 1
   # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
@@ -26,11 +26,11 @@ spec:
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: mc-server-poteto
+      app: mc-server-tikiba
   template:
     metadata:
       labels:
-        app: mc-server-poteto
+        app: mc-server-tikiba
     spec:
       # initContainers:
       #   - name: velocity-config-downloader
@@ -65,10 +65,10 @@ spec:
               value: /data
           # https://github.com/itzg/docker-minecraft-server#running-minecraft-server-on-different-java-version
           image: itzg/minecraft-server:java17
-          name: mc-server-poteto
+          name: mc-server-tikiba
           ports:
             - containerPort: 25565
-              name: mc-poteto
+              name: mc-tikiba
           # startupProbe:
           #   tcpSocket:
           #     port: 25565
@@ -76,13 +76,13 @@ spec:
           #   failureThreshold: 6
           #   periodSeconds: 20
           volumeMounts:
-            - name: mc-server-poteto-config
+            - name: mc-server-tikiba-config
               mountPath: /config/config/paper-global.yml
               subPath: paper-global.yml
-            - name: mc-server-poteto-config
+            - name: mc-server-tikiba-config
               mountPath: /config/server.properties
               subPath: server.properties
       volumes:
-        - name: mc-server-poteto-config
+        - name: mc-server-tikiba-config
           configMap:
-            name: mc-server-poteto-config
+            name: mc-server-tikiba-config
