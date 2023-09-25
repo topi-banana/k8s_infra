@@ -59,8 +59,8 @@ spec:
             periodSeconds: 20
           volumeMounts:
             - name: mc-server-poteto-config
-              mountPath: /config/server.properties
-              subPath: server.properties
+              mountPath: /config/config/paper-global.yml
+              subPath: paper-global.yml
       volumes:
         - name: mc-server-poteto-config
           configMap:
