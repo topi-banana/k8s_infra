@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mc-poteto
+spec:
+  type: LoadBalancer
+  ports:
+    - name: mc-poteto
+      port: 35565
+      protocol: TCP
+      targetPort: mc-poteto
+  selector:
+    app: velocity
