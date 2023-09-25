@@ -61,6 +61,9 @@ spec:
             - name: mc-server-poteto-config
               mountPath: /config/config/paper-global.yml
               subPath: paper-global.yml
+            - name: mc-server-poteto-config
+              mountPath: /config/server.properties
+              subPath: server.properties
       volumes:
         - name: mc-server-poteto-config
           configMap:
