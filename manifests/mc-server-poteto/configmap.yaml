@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-server-poteto-configmc-server-poteto-config
+  name: mc-server-poteto-config
 data:
   server.properties: |
     #Minecraft server properties
