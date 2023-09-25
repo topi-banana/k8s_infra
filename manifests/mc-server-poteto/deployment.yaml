@@ -51,12 +51,12 @@ spec:
           ports:
             - containerPort: 25565
               name: mc-poteto
-          startupProbe:
-            tcpSocket:
-              port: 25565
-            # 最大120秒待つ
-            failureThreshold: 6
-            periodSeconds: 20
+          # startupProbe:
+          #   tcpSocket:
+          #     port: 25565
+          #   # 最大120秒待つ
+          #   failureThreshold: 6
+          #   periodSeconds: 20
           volumeMounts:
             - name: mc-server-poteto-config
               mountPath: /config/config/paper-global.yml
