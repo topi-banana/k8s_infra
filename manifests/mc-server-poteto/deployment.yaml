@@ -20,6 +20,7 @@ metadata:
   annotations:
     configmap.reloader.stakater.com/reload: "mc-server-poteto-config"
 spec:
+  replicas: 1
   # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
   # 参考: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#replicas
   revisionHistoryLimit: 0
