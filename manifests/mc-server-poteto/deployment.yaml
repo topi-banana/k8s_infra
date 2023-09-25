@@ -56,6 +56,8 @@ spec:
               value: 1.20.1
             - name: TYPE
               value: PAPER
+            - name: OPS
+              value: topi_banana
             - name: COPY_CONFIG_DEST
               value: /data
           # https://github.com/itzg/docker-minecraft-server#running-minecraft-server-on-different-java-version
