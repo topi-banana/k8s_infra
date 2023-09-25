@@ -80,7 +80,7 @@ data:
     # represents the IP address of the server to connect to.
     lobby = "127.0.0.1:30066"
     tikiba = "127.0.0.1:30067"
-    poteto = "127.0.0.1:30068"
+    poteto = "mc-server-poteto-svc:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
