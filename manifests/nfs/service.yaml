@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nfs-server
+  name: nfs-server-svc
+spec:
+  type: ClusterIP
+  ports:
+  - name: nfs
+    port: 2049
+    protocol: TCP
+    targetPort: nfs-server
+  selector:
+    app: nfs-server
