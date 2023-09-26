@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: velocity-config
+  name: registry-nginx
 data:
   default.conf: |
     server {
