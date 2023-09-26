@@ -95,3 +95,6 @@ spec:
           configMap:
             name: mc-server-tikiba-config
         - name: mc-server-tikiba-world
+          hostPath:
+            path: /home/topi/tikiba-world
+            type: Directory
