@@ -16,7 +16,7 @@ metadata:
   labels:
     app: registry
   annotations:
-    configmap.reloader.stakater.com/reload: "velocity-config"
+    configmap.reloader.stakater.com/reload: "registry-config"
 spec:
   replicas: 1
   selector:
