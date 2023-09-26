@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nfs-server
+  name: nfs-server
+spec:
+  selector:
+    matchLabels:
+      app: nfs-server
+  template:
+    metadata:
+      labels:
+        app: nfs-server
+    spec:
+      nodeName: topi-server01
+      containers:
+        - name: nfs-server
+          image: mekayelanik/nfs-server-alpine
+          env:
+            - name: TZ
+              value: Asia/Tokyo
+            - name: ALLOWED_CLIENT
+              value: 0.0.0.0
+            - name: NFS_MOUNT_PORT
+              value: 2049
+            - name: NUMBER_OF_SHARES
+              value: 1
+            - name: NFS_EXPORT_1
+              value: /exports/share1
+          securityContext:
+            privileged: true
+          ports:
+            - name: nfs-server
+              containerPort: 2049
+          volumeMounts:
+            - mountPath: /exports
+              name: exports
+      volumes:
+        - name: exports
+          hostPath:
+            path: /mnt/exports
+            type: DirectoryOrCreate
