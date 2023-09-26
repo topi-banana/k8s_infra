@@ -24,20 +24,18 @@ spec:
               value: 0.0.0.0
             - name: NFS_MOUNT_PORT
               value: 2049
-            - name: NUMBER_OF_SHARES
-              value: 1
-            - name: NFS_EXPORT_1
-              value: /exports/share1
+            - name: NFS_ROOT_DIR
+              value: /data
           securityContext:
             privileged: true
           ports:
             - name: nfs-server
               containerPort: 2049
           volumeMounts:
-            - mountPath: /exports
+            - mountPath: /data
               name: exports
       volumes:
         - name: exports
           hostPath:
-            path: /mnt/exports
+            path: /mnt/nfs
             type: DirectoryOrCreate
