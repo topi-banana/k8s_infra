@@ -21,9 +21,9 @@ spec:
             - name: TZ
               value: Asia/Tokyo
             - name: ALLOWED_CLIENT
-              value: 0.0.0.0
+              value: '0.0.0.0'
             - name: NFS_MOUNT_PORT
-              value: 2049
+              value: '2049'
             - name: NFS_ROOT_DIR
               value: /data
           securityContext:
