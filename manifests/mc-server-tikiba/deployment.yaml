@@ -47,9 +47,10 @@ spec:
       #       - "-c"
       #       - 'wget -O /root/download/config.yml "${URL}"'
       containers:
-        - resources:
+        - nodeName: topi-server00
+          resources:
             requests:
-              memory: 768Mi
+              memory: 4G
           env:
             - name: EULA
               value: "TRUE"
