@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: nfs-service
 spec:
+  type: LoadBalancer
   ports:
   - name: nfs
     port: 2049
