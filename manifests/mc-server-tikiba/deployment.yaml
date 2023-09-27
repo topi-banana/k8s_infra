@@ -32,7 +32,7 @@ spec:
       labels:
         app: mc-server-tikiba
     spec:
-      nodeName: topi-server01
+      nodeName: topi-server02
       # initContainers:
       #   - name: velocity-config-downloader
       #     image: busybox:1.36.1
