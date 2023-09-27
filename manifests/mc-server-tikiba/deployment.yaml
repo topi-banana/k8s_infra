@@ -90,13 +90,14 @@ spec:
               subPath: server.properties
             - name: mc-server-tikiba-world
               mountPath: /data/world
+              subPath: tikiba/world
       volumes:
         - name: mc-server-tikiba-config
           configMap:
             name: mc-server-tikiba-config
         - name: mc-server-tikiba-world
           nfs:
-            server: nfs-service.app.svc.cluster.local
-            path: /tikiba/world
-          #persistentVolumeClaim:
-          #  claimName: nfs-pvc
+          #  server: nfs-service.app.svc.cluster.local
+          #  path: /tikiba/world
+          persistentVolumeClaim:
+            claimName: nfs-pvc
