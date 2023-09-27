@@ -90,11 +90,11 @@ spec:
               subPath: server.properties
             - name: mc-server-tikiba-world
               mountPath: /data/world
+              subPath: /tikiba/world
       volumes:
         - name: mc-server-tikiba-config
           configMap:
             name: mc-server-tikiba-config
         - name: mc-server-tikiba-world
-          hostPath:
-            path: /home/topi/tikiba-world
-            type: Directory
+          persistentVolumeClaim:
+            claimName: nfs-pvc
