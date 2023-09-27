@@ -96,7 +96,7 @@ spec:
             name: mc-server-tikiba-config
         - name: mc-server-tikiba-world
           nfs:
-            server: nfs-service.storage.svc.cluster.local
+            server: nfs-service.app.svc.cluster.local
             path: /tikiba/world
           #persistentVolumeClaim:
           #  claimName: nfs-pvc
