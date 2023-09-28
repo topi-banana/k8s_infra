@@ -90,9 +90,9 @@ spec:
             - name: mc-server-tikiba-config
               mountPath: /config/server.properties
               subPath: server.properties
-            - name: mc-server-tikiba-world
-              mountPath: /data/world
-              subPath: world
+            # - name: mc-server-tikiba-world
+            #   mountPath: /data/world
+            #   subPath: world
             - name: mc-server-tikiba
               mountPath: /data
       volumes:
