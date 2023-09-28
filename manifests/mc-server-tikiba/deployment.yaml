@@ -99,7 +99,7 @@ spec:
         - name: mc-server-tikiba-config
           configMap:
             name: mc-server-tikiba-config
-        - name: mc-server-tikiba-world
+        - name: mc-server-tikiba
           hostPath:
             path: /home/topi/tikiba
             type: DirectoryOrCreate
