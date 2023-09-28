@@ -92,10 +92,10 @@ spec:
               subPath: server.properties
             - name: mc-server-tikiba-world
               mountPath: /data/world
-            - name: mc-server-tikiba-world_nether
-              mountPath: /data/world_nether
-            - name: mc-server-tikiba-world_the_end
-              mountPath: /data/world_the_end
+            - name: mc-server-tikiba-world-nether
+              mountPath: /data/world-nether
+            - name: mc-server-tikiba-world-the-end
+              mountPath: /data/world-the-end
             # - name: mc-server-tikiba
             #   mountPath: /data
       volumes:
@@ -106,13 +106,13 @@ spec:
           hostPath:
             path: /home/topi/tikiba/world
             type: DirectoryOrCreate
-        - name: mc-server-tikiba-world_nether
+        - name: mc-server-tikiba-world-nether
           hostPath:
-            path: /home/topi/tikiba/world_nether
+            path: /home/topi/tikiba/world-nether
             type: DirectoryOrCreate
-        - name: mc-server-tikiba-world_the_end
+        - name: mc-server-tikiba-world-the-end
           hostPath:
-            path: /home/topi/tikiba/world_the_end
+            path: /home/topi/tikiba/world-the-end
             type: DirectoryOrCreate
         # - name: mc-server-tikiba
         #   hostPath:
