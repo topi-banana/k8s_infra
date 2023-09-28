@@ -93,19 +93,15 @@ spec:
             - name: mc-server-tikiba-world
               mountPath: /data/world
               subPath: world
-            - name: mc-server-tikiba-world
-              mountPath: /data/world_the_end
-              subPath: world_the_end
-            - name: mc-server-tikiba-world
-              mountPath: /data/world_nether
-              subPath: world_nether
+            - name: mc-server-tikiba
+              mountPath: /data
       volumes:
         - name: mc-server-tikiba-config
           configMap:
             name: mc-server-tikiba-config
         - name: mc-server-tikiba-world
           hostPath:
-            path: /home/topi/tikiba-world
+            path: /home/topi/tikiba
             type: DirectoryOrCreate
           #nfs:
           #  server: nfs-service.app.svc.cluster.local
