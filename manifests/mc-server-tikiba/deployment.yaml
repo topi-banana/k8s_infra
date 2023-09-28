@@ -90,21 +90,36 @@ spec:
             - name: mc-server-tikiba-config
               mountPath: /config/server.properties
               subPath: server.properties
-            # - name: mc-server-tikiba-world
-            #   mountPath: /data/world
-            #   subPath: world
-            - name: mc-server-tikiba
-              mountPath: /data
+            - name: mc-server-tikiba-world
+              mountPath: /data/world
+            - name: mc-server-tikiba-world_nether
+              mountPath: /data/world_nether
+            - name: mc-server-tikiba-world_the_end
+              mountPath: /data/world_the_end
+            # - name: mc-server-tikiba
+            #   mountPath: /data
       volumes:
         - name: mc-server-tikiba-config
           configMap:
             name: mc-server-tikiba-config
-        - name: mc-server-tikiba
+        - name: mc-server-tikiba-world
           hostPath:
-            path: /home/topi/tikiba
+            path: /home/topi/tikiba/world
             type: DirectoryOrCreate
-          #nfs:
-          #  server: nfs-service.app.svc.cluster.local
-          #  path: /tikiba/world
-          #persistentVolumeClaim:
-          #  claimName: nfs-pvc
+        - name: mc-server-tikiba-world_nether
+          hostPath:
+            path: /home/topi/tikiba/world_nether
+            type: DirectoryOrCreate
+        - name: mc-server-tikiba-world_the_end
+          hostPath:
+            path: /home/topi/tikiba/world_the_end
+            type: DirectoryOrCreate
+        # - name: mc-server-tikiba
+        #   hostPath:
+        #     path: /home/topi/tikiba
+        #     type: DirectoryOrCreate
+        #   nfs:
+        #    server: nfs-service.app.svc.cluster.local
+        #    path: /tikiba/world
+        #   persistentVolumeClaim:
+        #    claimName: nfs-pvc
