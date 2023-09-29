@@ -68,7 +68,11 @@ spec:
               value: topi_banana
             - name: PLUGINS
               # tabtps, worldedit, DiscordSRV
-              value: https://hangarcdn.papermc.io/plugins/jmp/TabTPS/versions/1.3.18/PAPER/tabtps-spigot-1.3.18.jar, https://mediafilez.forgecdn.net/files/4586/220/worldedit-bukkit-7.2.15.jar, https://cdn-raw.modrinth.com/data/UmLGoGij/versions/D1NeVd6Q/DiscordSRV-Build-1.26.2.jar
+              value: >-
+                https://hangarcdn.papermc.io/plugins/jmp/TabTPS/versions/1.3.18/PAPER/tabtps-spigot-1.3.18.jar,
+                https://mediafilez.forgecdn.net/files/4586/220/worldedit-bukkit-7.2.15.jar,
+                https://cdn-raw.modrinth.com/data/UmLGoGij/versions/D1NeVd6Q/DiscordSRV-Build-1.26.2.jar,
+                https://www.spigotmc.org/resources/fast-chunk-pregenerator.74429/download?version=506750
             - name: COPY_CONFIG_DEST
               value: /data
           # https://github.com/itzg/docker-minecraft-server#running-minecraft-server-on-different-java-version
