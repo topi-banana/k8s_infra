@@ -67,7 +67,7 @@ spec:
             - name: OPS
               value: topi_banana
             - name: PLUGINS
-              # tabtps, worldedit, DiscordSRV
+              # tabtps, worldedit, DiscordSRV, FastChunkPregenerator
               value: >-
                 https://hangarcdn.papermc.io/plugins/jmp/TabTPS/versions/1.3.18/PAPER/tabtps-spigot-1.3.18.jar,
                 https://mediafilez.forgecdn.net/files/4586/220/worldedit-bukkit-7.2.15.jar,
