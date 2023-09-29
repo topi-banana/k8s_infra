@@ -3,10 +3,10 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  name: cron-scaledobject--mc-server-tikiba
+  name: cron-scaledobject--mc-server-test
 spec:
   scaleTargetRef:
-    name: mc-server-tikiba
+    name: mc-server-test
     kind: Deployment
   # 再起動の時間に極力添えるようにチェックは毎回行うようにさせる
   pollingInterval:  30
