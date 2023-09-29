@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-server-tikiba-config
+  name: mc-server-test-config
 data:
   paper-global.yml: |
     _version: 28
