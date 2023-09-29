@@ -81,6 +81,7 @@ data:
     lobby = "127.0.0.1:30066"
     tikiba = "mc-server-tikiba-svc:25565"
     poteto = "mc-server-poteto-svc:25565"
+    test = "mc-server-test-svc:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
@@ -94,6 +95,9 @@ data:
     ]
     "poteto.topi-banana.com" = [
       "poteto"
+    ]
+    "test.topi-banana.com" = [
+      "test"
     ]
     
     [advanced]
