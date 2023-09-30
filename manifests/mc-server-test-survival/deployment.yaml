@@ -132,4 +132,4 @@ spec:
           #  claimName: nfs-pvckind: Pod
           nfs:
             server: "nfs-service"
-            path: "/test"
+            path: "/"
