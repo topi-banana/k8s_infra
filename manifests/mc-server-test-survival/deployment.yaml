@@ -122,11 +122,14 @@ spec:
         #     path: /home/topi/test/world_the_end
         #     type: DirectoryOrCreate
         - name: mc-server-test
-          hostPath:
-            path: /home/topi/test
-            type: DirectoryOrCreate
-        #   nfs:
-        #    server: nfs-service.app.svc.cluster.local
-        #    path: /test/world
-        #   persistentVolumeClaim:
-        #    claimName: nfs-pvc
+          # hostPath:
+          #   path: /home/topi/test
+          #   type: DirectoryOrCreate
+          # nfs:
+          #  server: nfs-service.app.svc.cluster.local
+          #  path: /test/world
+          # persistentVolumeClaim:
+          #  claimName: nfs-pvckind: Pod
+          nfs:
+            server: "nfs-service.storage.svc.cluster.local"
+            path: "/test"
