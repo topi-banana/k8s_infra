@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: mc-server-test-vscode-nginx-ingress
+spec:
+  rules:
+    - host: test.topi-banana.com
+      http:
+        paths:
+          - backend:
+              serviceName: mc-server-test-vscode-svc
+              servicePort: 80
+            path: /
+      https:
+        paths:
+          - backend:
+              serviceName: mc-server-test-vscode-svc
+              servicePort: 443
+            path: /
