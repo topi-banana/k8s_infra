@@ -9,6 +9,7 @@ Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-st
 - [ArgoCD (GitOps)](https://argo-cd.readthedocs.io/en/stable/getting_started)
 - [KEDA (ScaledObject)](https://keda.sh/docs/2.11/deploy/#yaml)
 - [Reloader](https://github.com/stakater/Reloader#deploying-to-kubernetes)
+- [ingress-nginx (ingress)](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy)
 
 ## reference
 - [Kubernetesクラスターを「クラウド↔自宅ネットワーク」間で作る（Tailscale編） - Quitta](https://qiita.com/showchan33/items/7500bcb73b10be437e49)
