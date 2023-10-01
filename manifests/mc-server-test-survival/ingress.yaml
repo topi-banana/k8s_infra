@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
@@ -9,8 +9,8 @@ spec:
     - host: test.topi-banana.com
       http:
         paths:
-          - backend:
+          - path: /
+            pathType: Prefix
+            backend:
               serviceName: mc-server-test-vscode-svc
               servicePort: 80
-            path: /
-            pathType: ImplementationSpecific
