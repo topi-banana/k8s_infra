@@ -105,21 +105,21 @@ spec:
             #   mountPath: /data/world_the_end
             - name: mc-server-test
               mountPath: /data
-        - name: vscode-server
-          image: busybox:1.36.1
-          volumeMounts:
-            - name: mc-server-test
-              mountPath: /data
-          command:
-            - sh
-            - -c
-            - |
-              curl -fsSL https://code-server.dev/install.sh | sh
-              code-server --install-extension ms-ceintl.vscode-language-pack-ja
-              code-server --port 8080 --bind-addr=0.0.0.0:8080 /data --log debug
-          ports:
-            - containerPort: 8080
-              name: mc-test-vscode
+        # - name: vscode-server
+        #   image: busybox:1.36.1
+        #   volumeMounts:
+        #     - name: mc-server-test
+        #       mountPath: /data
+        #   command:
+        #     - sh
+        #     - -c
+        #     - |
+        #       curl -fsSL https://code-server.dev/install.sh | sh
+        #       code-server --install-extension ms-ceintl.vscode-language-pack-ja
+        #       code-server --port 8080 --bind-addr=0.0.0.0:8080 /data --log debug
+        #   ports:
+        #     - containerPort: 8080
+        #       name: mc-test-vscode
       volumes:
         - name: mc-server-test-config
           configMap:
