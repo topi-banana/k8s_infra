@@ -56,3 +56,4 @@ data:
       location / {
         proxy_pass http://mc-server-test-survival
       }
+    }
