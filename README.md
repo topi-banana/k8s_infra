@@ -2,6 +2,45 @@
 
 ## k3s install
 Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-start)
+### 事前準備
+#### 別で
+- DB* (MariaDB,MySQL,etc...)
+pass: `k3s`
+user: `k3s`
+db_name: `k3s`
+- NAS (nfs,ftp,etc...)
+k8s pv/pvc用
+#### 各ノードに
+- tailscale
+プライベートネットワーク
+- docker
+コンテナランタイム
+
+[topi_banana/serversetting-cheatsheet.md (GithubGist)](https://gist.github.com/topi-banana/1916956b9c54af544dc576d3fe159e0b)
+
+```
+# tailscale 内のIPで
+export DB_ENDPOINT="mysql://k3s:k3s@tcp(xxx.xxx.xxx)/k3s"
+
+# このノードの tailscale IP
+export TAILSCALE_IP_NODE=$(tailscale ip -4)
+
+# ホームネットワーク等、アクセスに使うIP
+export EXTERNAL_IP_NODE="192.168.xxx.xxx"
+
+curl -sfL https://get.k3s.io | sh -s - server \
+ --docker \
+ --token=topi \
+ --flannel-backend=wireguard-native \
+ --no-deploy=traefik \
+ --write-kubeconfig-mode=644 \
+ --datastore-endpoint=$DB_ENDPOINT \
+ --node-ip=$TAILSCALE_IP_NODE \
+ --node-external-ip=$EXTERNAL_IP_NODE \
+ --advertise-address=$TAILSCALE_IP_NODE
+```
+
+
 
 ## manifests
 - ~~[MetalLB (LoadBalancer)](https://metallb.universe.tf/installation/#installation-by-manifest)~~
