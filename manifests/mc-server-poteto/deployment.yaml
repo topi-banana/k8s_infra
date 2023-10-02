@@ -83,7 +83,7 @@ spec:
               subPath: config.yaml
           ports:
             - containerPort: 8080
-              name: mc-poteto-vscode
+              name: mc-poteto-code
       volumes:
         - name: mc-server-poteto-config
           configMap:
