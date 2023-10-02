@@ -18,7 +18,7 @@ metadata:
   # We wish this deployment to be reloaded
   # when "velocity-config" ConfigMap are updated
   annotations:
-    configmap.reloader.stakater.com/reload: "mc-server-poteto-config"
+    configmap.reloader.stakater.com/reload: "mc-server-poteto-config,mc-server-poteto-vscode-config"
 spec:
   # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
   # 参考: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#replicas
@@ -74,6 +74,17 @@ spec:
           #   # 最大120秒待つ
           #   failureThreshold: 6
           #   periodSeconds: 20
+        - name: vscode-server
+          image: codercom/code-server:latest
+          volumeMounts:
+            - name: mc-server-test
+              mountPath: /home/coder/project
+            - name: mc-server-poteto-vscode-config
+              mountPath: /home/coder/.config/code-server/config.yaml
+              subPath: config.yaml
+          ports:
+            - containerPort: 8080
+              name: mc-test-vscode
           volumeMounts:
             - name: mc-server-poteto-config
               mountPath: /config/config/paper-global.yml
@@ -85,3 +96,6 @@ spec:
         - name: mc-server-poteto-config
           configMap:
             name: mc-server-poteto-config
+        - name: mc-server-poteto-vscode-config
+          configMap:
+            name: mc-server-poteto-vscode-config
