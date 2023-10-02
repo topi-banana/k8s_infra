@@ -20,6 +20,7 @@ spec:
       labels:
         app: mc-server-poteto
     spec:
+      nodeName: topi-server02
       # initContainers:
       #   - name: velocity-config-downloader
       #     image: busybox:1.36.1
@@ -76,8 +77,8 @@ spec:
         - name: vscode-server
           image: codercom/code-server:latest
           volumeMounts:
-            - name: mc-server-test
-              mountPath: /home/coder/project
+            - name: mc-server-poteto
+              mountPath: /home/coder/mc
             - name: mc-server-poteto-vscode-config
               mountPath: /home/coder/.config/code-server/config.yaml
               subPath: config.yaml
@@ -91,3 +92,7 @@ spec:
         - name: mc-server-poteto-vscode-config
           configMap:
             name: mc-server-poteto-vscode-config
+        - name: mc-server-poteto
+          hostPath:
+            path: /home/topi/poteto
+            type: DirectoryOrCreate
