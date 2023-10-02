@@ -5,16 +5,21 @@ Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-st
 ### 事前準備
 #### 別で
 - DB* (MariaDB,MySQL,etc...)
-  pass: `k3s`
-  user: `k3s`
-  db_name: `k3s`
+
+pass: `k3s`
+
+user: `k3s`
+
+db_name: `k3s`
+
 - NAS (nfs,ftp,etc...)
-  k8s pv/pvc用
+
+k8s pv/pvc用
 #### 各ノードに
 - tailscale
-  プライベートネットワーク
+プライベートネットワーク
 - docker
-  コンテナランタイム
+コンテナランタイム
 
 [topi_banana/serversetting-cheatsheet.md (GithubGist)](https://gist.github.com/topi-banana/1916956b9c54af544dc576d3fe159e0b)
 
