@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: argocd
+  annotations:
+    kubernetes.io/ingress.class: argocd-server
+  name: argocd-server-ingress
+spec:
+  rules:
+  - host: admin.topi-banana.com
+    http:
+      paths:
+      - path: /argocd/
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
