@@ -17,8 +17,10 @@ db_name: `k3s`
 k8s pv/pvc用
 #### 各ノードに
 - tailscale
+
 プライベートネットワーク
 - docker
+
 コンテナランタイム
 
 [topi_banana/serversetting-cheatsheet.md (GithubGist)](https://gist.github.com/topi-banana/1916956b9c54af544dc576d3fe159e0b)
