@@ -68,6 +68,8 @@ spec:
             - containerPort: 8080
               name: mc-test-vscode
           volumeMounts:
+            - name: mc-server-poteto
+              mountPath: /data
             - name: mc-server-poteto-config
               mountPath: /config/config/paper-global.yml
               subPath: paper-global.yml
