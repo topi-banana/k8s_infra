@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: test
+                name: mc-server-test-vscode-svc
                 port:
                   number: 80
