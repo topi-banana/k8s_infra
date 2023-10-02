@@ -1,7 +1,6 @@
 # k8s_infra
 
 ## k3s install
-Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-start)
 ### 事前準備
 #### 別で
 - DB* (MariaDB,MySQL,etc...)
@@ -24,6 +23,11 @@ k8s pv/pvc用
 コンテナランタイム
 
 [topi_banana/serversetting-cheatsheet.md (GithubGist)](https://gist.github.com/topi-banana/1916956b9c54af544dc576d3fe159e0b)
+
+### k3s install
+Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-start)
+- [--flannel-backend=wireguard-native](https://github.com/k3s-io/k3s/issues/6255#issuecomment-1278872178)
+- [--no-deploy=traefik](https://keepforyourself.com/disable-traefik-from-k3s)
 
 ```sh
 # tailscale 内のIPで
