@@ -7,7 +7,7 @@ metadata:
   # We wish this deployment to be reloaded
   # when "velocity-config" ConfigMap are updated
   annotations:
-    configmap.reloader.stakater.com/reload: "mc-server-test-config"
+    configmap.reloader.stakater.com/reload: "mc-server-test-config,mc-server-test-vscode-config"
 spec:
   replicas: 1
   # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
@@ -99,6 +99,9 @@ spec:
           volumeMounts:
             - name: mc-server-test
               mountPath: /home/coder/project
+            - name: mc-server-test-vscode-config
+              mountPath: /home/coder/.config/code-server/config.yaml
+              subPath: config.yaml
           ports:
             - containerPort: 8080
               name: mc-test-vscode
@@ -106,6 +109,10 @@ spec:
         - name: mc-server-test-config
           configMap:
             name: mc-server-test-config
+        - name: mc-server-test-vscode-config
+          configMap:
+            name: mc-server-test-vscode-config
+            
         # - name: mc-server-test-world
         #   hostPath:
         #     path: /home/topi/test/world
