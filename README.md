@@ -25,7 +25,7 @@ k8s pv/pvc用
 
 [topi_banana/serversetting-cheatsheet.md (GithubGist)](https://gist.github.com/topi-banana/1916956b9c54af544dc576d3fe159e0b)
 
-```
+```sh
 # tailscale 内のIPで
 export DB_ENDPOINT="mysql://k3s:k3s@tcp(xxx.xxx.xxx)/k3s"
 
