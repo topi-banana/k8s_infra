@@ -7,6 +7,7 @@ Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-st
 - ~~[MetalLB (LoadBalancer)](https://metallb.universe.tf/installation/#installation-by-manifest)~~
 - [Calico (CNI)](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart)
 - [ArgoCD (GitOps)](https://argo-cd.readthedocs.io/en/stable/getting_started)
+- [ArgoCD ingress](https://raw.githubusercontent.com/topi-banana/k8s_infra/main/manifests/argocd-ingress.yaml)
 - [KEDA (ScaledObject)](https://keda.sh/docs/2.11/deploy/#yaml)
 - [Reloader](https://github.com/stakater/Reloader#deploying-to-kubernetes)
 - [ingress-nginx (ingress)](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy)
