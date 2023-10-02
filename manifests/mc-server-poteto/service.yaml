@@ -18,4 +18,4 @@ spec:
     app: mc-server-poteto
   ports:
   - port: 80
-    targetPort: mc-poteto-vscode
+    targetPort: mc-poteto-code
