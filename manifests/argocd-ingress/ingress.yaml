@@ -10,7 +10,7 @@ spec:
   - host: admin.topi-banana.com
     http:
       paths:
-      - path: /argocd/
+      - path: /
         pathType: Prefix
         backend:
           service:
