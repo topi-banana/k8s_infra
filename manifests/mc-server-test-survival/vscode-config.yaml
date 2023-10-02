@@ -6,5 +6,5 @@ data:
   config.yaml : |
     bind-addr: 0.0.0.0:8080
     auth: password
-    password: tBFMu3F6xSuTRW4u
+    password: 71ace077ba99d5522ec155bb
     cert: false
