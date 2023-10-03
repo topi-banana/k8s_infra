@@ -47,6 +47,9 @@ spec:
               value: topi_banana
             - name: COPY_CONFIG_DEST
               value: /data
+            - name: PLUGINS
+              value: >-
+                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/4.8.0/PAPER/ViaVersion-4.8.0.jar
           # https://github.com/itzg/docker-minecraft-server#running-minecraft-server-on-different-java-version
           image: itzg/minecraft-server:java17
           name: mc-server-poteto
