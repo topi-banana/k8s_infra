@@ -6,7 +6,9 @@ spec:
   selector:
     app: mc-server-poteto
   ports:
-  - port: 25565
+  - name: mc
+    port: 25565
     targetPort: mc-poteto
-  - port: 80
+  - name: code
+    port: 80
     targetPort: mc-poteto-code
