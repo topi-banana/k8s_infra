@@ -72,3 +72,4 @@ curl -sfL https://get.k3s.io | sh -s - server \
 - ~~└--> [Deploying NFS Server in Kubernetes - Github](https://github.com/appscode/third-party-tools/tree/master/storage/nfs)~~
 - ~~└-->[ftp-kube - Github](https://github.com/latonaio/ftp-kube)~~
 - [お試し CephFS - Zenn](https://zenn.dev/t_ume/articles/adedeb6e7bd7ce)
+- [Quickstart - Rook Ceph Documentation](https://rook.github.io/docs/rook/v1.12/Getting-Started/quickstart/)
