@@ -8,14 +8,5 @@ spec:
   ports:
   - port: 25565
     targetPort: mc-poteto
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: mc-server-poteto-vscode-svc
-spec:
-  selector:
-    app: mc-server-poteto
-  ports:
   - port: 80
     targetPort: mc-poteto-code
