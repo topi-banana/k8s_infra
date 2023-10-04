@@ -73,3 +73,11 @@ curl -sfL https://get.k3s.io | sh -s - server \
 - ~~└-->[ftp-kube - Github](https://github.com/latonaio/ftp-kube)~~
 - [お試し CephFS - Zenn](https://zenn.dev/t_ume/articles/adedeb6e7bd7ce)
 - [Quickstart - Rook Ceph Documentation](https://rook.github.io/docs/rook/v1.12/Getting-Started/quickstart/)
+```sh
+git clone --single-branch --branch v1.12.4 https://github.com/rook/rook.git
+cd rook/deploy/examples
+kubectl create -f crds.yaml -f common.yaml -f operator.yaml
+kubectl create -f cluster.yaml
+kubectl apply -f csi/cephfs/storageclass.yaml
+kubectl apply -f csi/cephfs/pvc.yaml
+```
