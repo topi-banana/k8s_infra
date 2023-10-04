@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
-  name: mc-server-poteto-vscode-ingress
+  name: mc-server-poteto-ingress
 spec:
   rules:
     - host: poteto.topi-banana.com
@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: mc-server-poteto-vscode-svc
+                name: mc-server-poteto-svc
                 port:
                   number: 80
