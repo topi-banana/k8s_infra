@@ -6,12 +6,13 @@
 - DB* (MariaDB,MySQL,etc...)
 
 pass: `k3s`
-
 user: `k3s`
-
 db_name: `k3s`
-
 - NAS (nfs,ftp,etc...)
+
+```sh
+sudo apt install cifs-utils
+```
 
 k8s pv/pvc用
 #### 各ノードに
