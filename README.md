@@ -27,7 +27,7 @@ k8s pv/pvc用
 ### k3s install
 Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-start)
 - [--flannel-backend=wireguard-native](https://github.com/k3s-io/k3s/issues/6255#issuecomment-1278872178)
-- [--no-deploy=traefik](https://keepforyourself.com/disable-traefik-from-k3s)
+- [--disable=traefik](https://docs.k3s.io/networking#:~:text=servers%20with%20the-,%2D%2Ddisable%3Dtraefik,-flag.)
 
 ```sh
 # tailscale 内のIPで
@@ -43,7 +43,7 @@ curl -sfL https://get.k3s.io | sh -s - server \
  --docker \
  --token=topi \
  --flannel-backend=wireguard-native \
- --no-deploy=traefik \
+ --disable=traefik \
  --write-kubeconfig-mode=644 \
  --datastore-endpoint=$DB_ENDPOINT \
  --node-ip=$TAILSCALE_IP_NODE \
