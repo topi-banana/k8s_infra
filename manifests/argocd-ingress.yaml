@@ -4,7 +4,9 @@ metadata:
   name: argocd-server-ingress
   namespace: argocd
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
   rules:
@@ -17,4 +19,8 @@ spec:
           service:
             name: argocd-server
             port:
-              number: 80
+              name: https
+  tls:
+  - hosts:
+    - admin.topi-banana.com
+    secretName: argocd-server-tls # as expected by argocd-server
