@@ -68,13 +68,6 @@ curl -sfL https://get.k3s.io | sh -s - server \
 - ~~[NFSサーバをKubernetesのServiceで作り、ReadWriteManyなPersistentVolumeを作る - Quitta(nfs)](https://qiita.com/showchan33/items/fa3dadc546d4ae5e8c09)~~
 - ~~└--> [Deploying NFS Server in Kubernetes - Github](https://github.com/appscode/third-party-tools/tree/master/storage/nfs)~~
 - ~~└-->[ftp-kube - Github](https://github.com/latonaio/ftp-kube)~~
-- [お試し CephFS - Zenn](https://zenn.dev/t_ume/articles/adedeb6e7bd7ce)
-- [Quickstart - Rook Ceph Documentation](https://rook.github.io/docs/rook/v1.12/Getting-Started/quickstart/)
-```sh
-git clone --single-branch --branch v1.12.4 https://github.com/rook/rook.git
-cd rook/deploy/examples
-kubectl create -f crds.yaml -f common.yaml -f operator.yaml
-kubectl create -f cluster.yaml
-kubectl apply -f csi/cephfs/storageclass.yaml
-kubectl apply -f csi/cephfs/pvc.yaml
-```
+- ~~└-->[お試し CephFS - Zenn](https://zenn.dev/t_ume/articles/adedeb6e7bd7ce)~~
+- ~~└-->[Quickstart - Rook Ceph Documentation](https://rook.github.io/docs/rook/v1.12/Getting-Started/quickstart/)~~
+- [【k8s】ingressがapplyできない。(InternalError) - Qitta](https://qiita.com/magisystem0408/items/48bca4496962fd508556)
