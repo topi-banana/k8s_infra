@@ -58,7 +58,8 @@ curl -sfL https://get.k3s.io | sh -s - server \
 - [KEDA (ScaledObject)](https://keda.sh/docs/2.11/deploy/#yaml)
 - [Reloader](https://github.com/stakater/Reloader#deploying-to-kubernetes)
 - [ingress-nginx (ingress)](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy)
-- [rook/Ceph (Storage,PV/PVC)](https://github.com/rook/rook)
+- [cert-manager (ingress SSL)](https://cert-manager.io/docs/installation)
+- ~~[rook/Ceph (Storage,PV/PVC)](https://github.com/rook/rook)~~
 
 ## reference
 - [Kubernetesクラスターを「クラウド↔自宅ネットワーク」間で作る（Tailscale編） - Quitta](https://qiita.com/showchan33/items/7500bcb73b10be437e49)
