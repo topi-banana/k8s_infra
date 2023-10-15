@@ -59,6 +59,7 @@ curl -sfL https://get.k3s.io | sh -s - server \
 - [Reloader](https://github.com/stakater/Reloader#deploying-to-kubernetes)
 - [ingress-nginx (ingress)](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy)
 - [cert-manager (ingress SSL)](https://cert-manager.io/docs/installation/kubectl)
+- [SMB CSI (StorageClass)](https://cloud.google.com/kubernetes-engine/docs/how-to/access-smb-volume?hl=ja)
 - ~~[rook/Ceph (Storage,PV/PVC)](https://github.com/rook/rook)~~
 
 ## reference
