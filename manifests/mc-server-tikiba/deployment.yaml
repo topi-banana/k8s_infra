@@ -32,7 +32,7 @@ spec:
       labels:
         app: mc-server-tikiba
     spec:
-      # nodeName: topi-server02
+      nodeName: topi-server00
       # initContainers:
       #   - name: velocity-config-downloader
       #     image: busybox:1.36.1
@@ -119,11 +119,11 @@ spec:
         #     path: /home/topi/tikiba/world_the_end
         #     type: DirectoryOrCreate
         - name: mc-server-tikiba
-          # hostPath:
-          #   path: /mnt/topi-datastore/tikiba
-          #   type: DirectoryOrCreate
+          hostPath:
+            path: /home/topi/tikiba
+            type: DirectoryOrCreate
           # nfs:
           #  server: nfs-service.app.svc.cluster.local
           #  path: /tikiba/world
-          persistentVolumeClaim:
-           claimName: pvc-tikiba
+          # persistentVolumeClaim:
+          #  claimName: pvc-tikiba
