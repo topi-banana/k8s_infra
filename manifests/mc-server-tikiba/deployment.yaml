@@ -119,11 +119,11 @@ spec:
         #     path: /home/topi/tikiba/world_the_end
         #     type: DirectoryOrCreate
         - name: mc-server-tikiba
-          hostPath:
-            path: /mnt/topi-datastore/tikiba
-            type: DirectoryOrCreate
-        #   nfs:
-        #    server: nfs-service.app.svc.cluster.local
-        #    path: /tikiba/world
-        #   persistentVolumeClaim:
-        #    claimName: nfs-pvc
+          # hostPath:
+          #   path: /mnt/topi-datastore/tikiba
+          #   type: DirectoryOrCreate
+          # nfs:
+          #  server: nfs-service.app.svc.cluster.local
+          #  path: /tikiba/world
+          persistentVolumeClaim:
+           claimName: pvc-tikiba
