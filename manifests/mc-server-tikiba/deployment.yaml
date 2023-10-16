@@ -75,6 +75,8 @@ spec:
                 https://mediafilez.forgecdn.net/files/4601/754/FastChunkPregenerator-2.0.6-SNAPSHOT_2.jar
             - name: COPY_CONFIG_DEST
               value: /data
+            - name: TZ
+              value: Asia/Tokyo
           # https://github.com/itzg/docker-minecraft-server#running-minecraft-server-on-different-java-version
           image: itzg/minecraft-server:java17
           name: mc-server-tikiba
