@@ -15,7 +15,7 @@ data:
     }
 
     stream {
-      include /etc/nginx/conf.d/_*.conf
+      include /etc/nginx/conf.d/_*.conf;
     }
   _samba.conf: |
     # Name Service
