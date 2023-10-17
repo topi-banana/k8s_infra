@@ -10,7 +10,6 @@ data:
     error_log  /var/log/nginx/error.log notice;
     pid        /var/run/nginx.pid;
 
-
     events {
       worker_connections  1024;
     }
@@ -19,42 +18,42 @@ data:
       include /etc/nginx/conf.d/_*.conf
     }
   _samba.conf: |
-      # Name Service
-      upstream netbios_ns {
-        server 100.64.10.131:137;
-      }
-      server {
-        listen 137;
-        proxy_pass netbios_ns;
-        allow all;
-      }
+    # Name Service
+    upstream netbios_ns {
+      server 100.64.10.131:137;
+    }
+    server {
+      listen 137;
+      proxy_pass netbios_ns;
+      allow all;
+    }
 
-      # Datagram Service
-      upstream netbios_dgm {
-        server 100.64.10.131:138;
-      }
-      server {
-        listen 138;
-        proxy_pass netbios_dgm;
-        allow all;
-      }
+    # Datagram Service
+    upstream netbios_dgm {
+      server 100.64.10.131:138;
+    }
+    server {
+      listen 138;
+      proxy_pass netbios_dgm;
+      allow all;
+    }
 
-      # Session Service
-      upstream netbios_ssn {
-        server 100.64.10.131:139;
-      }
-      server {
-        listen 139;
-        proxy_pass netbios_ssn;
-        allow all;
-      }
+    # Session Service
+    upstream netbios_ssn {
+      server 100.64.10.131:139;
+    }
+    server {
+      listen 139;
+      proxy_pass netbios_ssn;
+      allow all;
+    }
 
-      # Direct Hosting of SMB
-      upstream microsoft_ds {
-        server 100.64.10.131:445;
-      }
-      server {
-        listen 445;
-        proxy_pass microsoft_ds;
-        allow all;
-      }
+    # Direct Hosting of SMB
+    upstream microsoft_ds {
+      server 100.64.10.131:445;
+    }
+    server {
+      listen 445;
+      proxy_pass microsoft_ds;
+      allow all;
+    }
