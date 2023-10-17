@@ -23,6 +23,8 @@ spec:
             - name: tunnel-nginx-config
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
+            - name: tunnel-nginx-config
+              mountPath: /etc/nginx/conf.d
           ports:
             - name: netbios-ns
               containerPort: 137
@@ -30,7 +32,7 @@ spec:
               containerPort: 138
             - name: netbios-ssn
               containerPort: 139
-            - name: netbios-ds
+            - name: microsoft-ds
               containerPort: 445
       volumes:
         - name: tunnel-nginx-config
