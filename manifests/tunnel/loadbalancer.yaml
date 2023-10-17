@@ -5,21 +5,25 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - name: ns
-      port: 137
-      protocol: UDP
-      targetPort: netbios-ns
-    - name: dgm
-      port: 138
-      protocol: UDP
-      targetPort: netbios-dgm
-    - name: ssn
-      port: 139
-      protocol: TCP
-      targetPort: netbios-ssn
-    - name: ds
-      port: 445
-      protocol: TCP
-      targetPort: microsoft-ds
+    # - name: ns
+    #   port: 137
+    #   protocol: UDP
+    #   targetPort: netbios-ns
+    # - name: dgm
+    #   port: 138
+    #   protocol: UDP
+    #   targetPort: netbios-dgm
+    # - name: ssn
+    #   port: 139
+    #   protocol: TCP
+    #   targetPort: netbios-ssn
+    # - name: ds
+    #   port: 445
+    #   protocol: TCP
+    #   targetPort: microsoft-ds
+    - name: ssh
+      port: 22
+      protocol: TCP,UDP
+      targetPort: ssh
   selector:
     app: tunnel
