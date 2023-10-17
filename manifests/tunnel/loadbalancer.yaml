@@ -22,7 +22,7 @@ spec:
     #   protocol: TCP
     #   targetPort: microsoft-ds
     - name: ssh
-      port: 22
+      port: 122
       protocol: TCP
       targetPort: ssh
   selector:
