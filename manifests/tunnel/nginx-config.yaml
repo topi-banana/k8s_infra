@@ -58,6 +58,6 @@ data:
       server 100.64.10.131:22;
     }
     server {
-      listen 122;
+      listen 22;
       proxy_pass sshs;
     }
