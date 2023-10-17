@@ -25,7 +25,6 @@ data:
     server {
       listen 137;
       proxy_pass netbios_ns;
-      allow all;
     }
 
     # Datagram Service
@@ -35,7 +34,6 @@ data:
     server {
       listen 138;
       proxy_pass netbios_dgm;
-      allow all;
     }
 
     # Session Service
@@ -45,7 +43,6 @@ data:
     server {
       listen 139;
       proxy_pass netbios_ssn;
-      allow all;
     }
 
     # Direct Hosting of SMB
@@ -55,5 +52,4 @@ data:
     server {
       listen 445;
       proxy_pass microsoft_ds;
-      allow all;
     }
