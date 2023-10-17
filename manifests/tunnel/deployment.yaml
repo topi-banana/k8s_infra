@@ -20,12 +20,19 @@ spec:
         - name: tunnel-nginx
           image: nginx
           volumeMounts:
-            - name: tunnel-nginx
-              mountPath: /etc/nginx/conf.d
+            - name: tunnel-nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
           ports:
-            - name: topi-datastore-smb
-              containerPort: 80
+            - name: netbios-ns
+              containerPort: 137
+            - name: netbios-dgm
+              containerPort: 138
+            - name: netbios-ssn
+              containerPort: 139
+            - name: netbios-ds
+              containerPort: 445
       volumes:
-        - name: tunnel-nginx
+        - name: tunnel-nginx-config
           configMap:
-            name: tunnel-nginx
+            name: tunnel-nginx-config
