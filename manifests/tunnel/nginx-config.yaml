@@ -17,39 +17,47 @@ data:
     stream {
       include /etc/nginx/conf.d/_*.conf;
     }
-  _samba.conf: |
-    # Name Service
-    upstream netbios_ns {
-      server 100.64.10.131:137;
-    }
-    server {
-      listen 137;
-      proxy_pass netbios_ns;
-    }
+  # _samba.conf: |
+  #   # Name Service
+  #   upstream netbios_ns {
+  #     server 100.64.10.131:137;
+  #   }
+  #   server {
+  #     listen 137;
+  #     proxy_pass netbios_ns;
+  #   }
 
-    # Datagram Service
-    upstream netbios_dgm {
-      server 100.64.10.131:138;
-    }
-    server {
-      listen 138;
-      proxy_pass netbios_dgm;
-    }
+  #   # Datagram Service
+  #   upstream netbios_dgm {
+  #     server 100.64.10.131:138;
+  #   }
+  #   server {
+  #     listen 138;
+  #     proxy_pass netbios_dgm;
+  #   }
 
-    # Session Service
-    upstream netbios_ssn {
-      server 100.64.10.131:139;
-    }
-    server {
-      listen 139;
-      proxy_pass netbios_ssn;
-    }
+  #   # Session Service
+  #   upstream netbios_ssn {
+  #     server 100.64.10.131:139;
+  #   }
+  #   server {
+  #     listen 139;
+  #     proxy_pass netbios_ssn;
+  #   }
 
-    # Direct Hosting of SMB
-    upstream microsoft_ds {
-      server 100.64.10.131:445;
+  #   # Direct Hosting of SMB
+  #   upstream microsoft_ds {
+  #     server 100.64.10.131:445;
+  #   }
+  #   server {
+  #     listen 445;
+  #     proxy_pass microsoft_ds;
+  #   }
+  _ssh.conf: |
+    upstream sshs {
+      server 100.64.10.131:22;
     }
     server {
-      listen 445;
-      proxy_pass microsoft_ds;
+      listen 122;
+      proxy_pass sshs;
     }
