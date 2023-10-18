@@ -53,3 +53,29 @@ spec:
           ports:
             - name: fileprinters
               containerPort: 139
+
+        - name: browser
+          image: marcnuri/port-forward
+          env:
+            - name: REMOTE_HOST
+              value: 100.64.10.131
+            - name: REMOTE_PORT
+              value: "138"
+            - name: LOCAL_PORT
+              value: "138"
+          ports:
+            - name: browser
+              containerPort: 138
+
+        - name: nameservice
+          image: marcnuri/port-forward
+          env:
+            - name: REMOTE_HOST
+              value: 100.64.10.131
+            - name: REMOTE_PORT
+              value: "137"
+            - name: LOCAL_PORT
+              value: "137"
+          ports:
+            - name: nameservice
+              containerPort: 137
