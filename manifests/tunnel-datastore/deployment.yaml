@@ -20,7 +20,7 @@ spec:
             - name: REMOTE_HOST
               value: 100.64.10.131
             - name: REMOTE_PORT
-              value: 22
+              value: "22"
           ports:
             - name: ssh
               containerPort: 80
