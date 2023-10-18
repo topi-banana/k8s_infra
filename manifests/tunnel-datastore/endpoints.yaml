@@ -6,8 +6,9 @@ subsets:
   - addresses:
       - ip: 100.64.10.131
     ports:
-      - port: 22
-      - port: 445
-      - port: 137
-      - port: 138
-      - port: 139
+      - name: ssh
+        port: 22
+      # - port: 445
+      # - port: 137
+      # - port: 138
+      # - port: 139
