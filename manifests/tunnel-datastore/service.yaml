@@ -8,10 +8,6 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 3306
-      targetPort: mysql
-
-    - protocol: TCP
       port: 445
       targetPort: cifs
 
