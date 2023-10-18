@@ -15,13 +15,35 @@ spec:
         app: tunnel-datastore
     spec:
       containers:
-        - name: ssh
+        - name: mysql
           image: marcnuri/port-forward
           env:
             - name: REMOTE_HOST
               value: 100.64.10.131
             - name: REMOTE_PORT
-              value: "22"
+              value: "3306"
           ports:
-            - name: ssh
+            - name: mysql
+              containerPort: 80
+
+        - name: cifs
+          image: marcnuri/port-forward
+          env:
+            - name: REMOTE_HOST
+              value: 100.64.10.131
+            - name: REMOTE_PORT
+              value: "445"
+          ports:
+            - name: cifs
+              containerPort: 80
+
+        - name: fileprinters
+          image: marcnuri/port-forward
+          env:
+            - name: REMOTE_HOST
+              value: 100.64.10.131
+            - name: REMOTE_PORT
+              value: "139"
+          ports:
+            - name: fileprinters
               containerPort: 80
