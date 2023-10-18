@@ -21,3 +21,13 @@ spec:
       protocol: TCP
       port: 139
       targetPort: fileprinters
+
+    - name: browser
+      protocol: UDP
+      port: 138
+      targetPort: browser
+
+    - name: nameservice
+      protocol: UDP
+      port: 137
+      targetPort: nameservice
