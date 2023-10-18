@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tunnel-datastore
+  labels:
+    app: tunnel-datastore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tunnel-datastore
+  template:
+    metadata:
+      labels:
+        app: tunnel-datastore
+    spec:
+      containers:
+        - image: marcnuri/port-forward
+          env:
+            - name: REMOTE_HOST
+              value: 100.64.10.131
+            - name: REMOTE_PORT
+              value: 22
+          ports:
+            - name: ssh
+              containerPort: 80
