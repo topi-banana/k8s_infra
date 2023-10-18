@@ -8,5 +8,13 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 122
-      targetPort: ssh
+      port: 3306
+      targetPort: mysql
+
+    - protocol: TCP
+      port: 445
+      targetPort: cifs
+
+    - protocol: TCP
+      port: 139
+      targetPort: fileprinters
