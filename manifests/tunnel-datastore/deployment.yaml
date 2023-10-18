@@ -33,9 +33,11 @@ spec:
               value: 100.64.10.131
             - name: REMOTE_PORT
               value: "445"
+            - name: LOCAL_PORT
+              value: "445"
           ports:
             - name: cifs
-              containerPort: 80
+              containerPort: 445
 
         - name: fileprinters
           image: marcnuri/port-forward
@@ -44,6 +46,8 @@ spec:
               value: 100.64.10.131
             - name: REMOTE_PORT
               value: "139"
+            - name: LOCAL_PORT
+              value: "139"
           ports:
             - name: fileprinters
-              containerPort: 80
+              containerPort: 139
