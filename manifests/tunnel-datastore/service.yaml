@@ -7,10 +7,12 @@ spec:
     app: tunnel-datastore
   type: LoadBalancer
   ports:
-    - protocol: TCP
+    - name: cifs
+      protocol: TCP
       port: 445
       targetPort: cifs
 
-    - protocol: TCP
+    - name: fileprinters
+      protocol: TCP
       port: 139
       targetPort: fileprinters
