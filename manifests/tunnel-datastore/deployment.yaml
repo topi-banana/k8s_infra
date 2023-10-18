@@ -15,7 +15,8 @@ spec:
         app: tunnel-datastore
     spec:
       containers:
-        - image: marcnuri/port-forward
+        - name: ssh
+          image: marcnuri/port-forward
           env:
             - name: REMOTE_HOST
               value: 100.64.10.131
