@@ -7,6 +7,11 @@ spec:
     app: tunnel-datastore
   type: LoadBalancer
   ports:
+    - name: mysql
+      protocol: TCP
+      port: 3307
+      targetPort: mysql
+  
     - name: cifs
       protocol: TCP
       port: 445
