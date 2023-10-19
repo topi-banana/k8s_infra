@@ -34,4 +34,4 @@ spec:
     requests:
       storage: 10Gi
   volumeName: pv-root
-  storageClassName: "topi-datastore-root"
+  storageClassName: ""
