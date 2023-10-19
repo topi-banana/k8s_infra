@@ -4,13 +4,7 @@ metadata:
   labels:
     app: samba
   name: samba
-  # We wish this deployment to be reloaded
-  # when "velocity-config" ConfigMap are updated
-  annotations:
-    configmap.reloader.stakater.com/reload: "velocity-config"
 spec:
-  # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
-  # 参考: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#replicas
   revisionHistoryLimit: 0
   selector:
     matchLabels:
@@ -25,15 +19,33 @@ spec:
         - env:
             - name: SAMBA_CONF_SERVER_STRING
               value: topi-datastore
+
             - name: ACCOUNT_topi
               value: "topi:1000:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:026D3A1B6B259F8117869B6785857E7B:[U          ]:LCT-652FA929:"
-            - name: ACCOUNT_test
-              value: "test:1000:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:4E60D5ED9A15B870B134F14C3D2E8727:[U          ]:LCT-652FB150:"
+            - name: UID_topi
+              value: "1000"
+
+            - name: ACCOUNT_poteto
+              value: "poteto:1000:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:4314F790C1E1E07D1AF6C4F0A243C6D8:[U          ]:LCT-6530B335:"
+            - name: UID_poteto
+              value: "1001"
+
             - name: SAMBA_VOLUME_CONFIG_homes
               value: >-
-                path = /homes/%U;
+                [homes];
+                path = /home/%U;
+                valid users = topi, poteto;
                 comment = %U - topi-datastore;
-                browseable = no;
+                browseable = yes;
+                writable = yes;
+
+            - name: SAMBA_VOLUME_CONFIG_root
+              value: >-
+                [root];
+                path = /home;
+                valid users = topi;
+                comment = for admin - topi-datastore;
+                browseable = yes;
                 writable = yes;
           image: servercontainers/samba
           name: samba
@@ -44,10 +56,7 @@ spec:
               containerPort: 139
             - name: nameservice
               containerPort: 137
-          volumeMounts:
-            - name: velocity-config
-              mountPath: /config/velocity.toml
-              subPath: velocity.toml
-            - name: velocity-config
-              mountPath: /config/forwarding.secret
-              subPath: forwarding.secret
+
+        - name: rootdir
+          persistentVolumeClaim:
+           claimName: topi-datastore-root
