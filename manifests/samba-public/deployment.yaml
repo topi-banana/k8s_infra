@@ -56,7 +56,11 @@ spec:
               containerPort: 139
             - name: nameservice
               containerPort: 137
+          volumeMounts:
+            - name: rootdir
+              mountPath: /home
 
+      volumes:
         - name: rootdir
           persistentVolumeClaim:
-           claimName: topi-datastore-root
+           claimName: pvc-root
