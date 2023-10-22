@@ -14,6 +14,7 @@ spec:
       labels:
         app: samba
     spec:
+      nodeName: topi-host
       hostNetwork: true
       containers:
         # https://github.com/ServerContainers/samba/
