@@ -51,13 +51,13 @@ spec:
                 writable = yes;
           image: servercontainers/samba
           name: samba
-          # ports:
-          #   - name: cifs
-          #     containerPort: 445
-          #   - name: fileprinters
-          #     containerPort: 139
-          #   - name: nameservice
-          #     containerPort: 137
+          ports:
+            - name: cifs
+              containerPort: 445
+            - name: fileprinters
+              containerPort: 139
+            - name: nameservice
+              containerPort: 137
           volumeMounts:
             - name: rootdir
               mountPath: /home
