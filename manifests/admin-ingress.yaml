@@ -16,16 +16,14 @@ spec:
     http:
       paths:
       - path: /argocd/
-        #pathType: Prefix
+        pathType: Prefix
         backend:
           service:
             name: argocd-server
             port:
               name: https
-  - host: admin.topi-banana.com
-    http:
-      paths:
       - path: /dashboard/
+        pathType: Prefix
         backend:
           service:
             name: kubernetes-dashboard
