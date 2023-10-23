@@ -54,7 +54,7 @@ curl -sfL https://get.k3s.io | sh -s - server \
 
 ## manifests
 - ~~[MetalLB (LoadBalancer)](https://metallb.universe.tf/installation/#installation-by-manifest)~~
-- [Calico (CNI)](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart)
+- [Calico (CNI)](https://github.com/projectcalico/calico/blob/v3.26.3/manifests/calico.yaml)
 - [ArgoCD (GitOps)](https://argo-cd.readthedocs.io/en/stable/getting_started)
 - [ArgoCD ingress](https://raw.githubusercontent.com/topi-banana/k8s_infra/main/manifests/argocd-ingress.yaml)
 - [KEDA (ScaledObject)](https://keda.sh/docs/2.11/deploy/#yaml)
@@ -65,6 +65,7 @@ curl -sfL https://get.k3s.io | sh -s - server \
 - ~~[rook/Ceph (Storage,PV/PVC)](https://github.com/rook/rook)~~
 
 ## reference
+- [K3s multi-node install - TIGERA](https://docs.tigera.io/calico/latest/getting-started/kubernetes/k3s/multi-node-install)
 - [Kubernetesクラスターを「クラウド↔自宅ネットワーク」間で作る（Tailscale編） - Quitta](https://qiita.com/showchan33/items/7500bcb73b10be437e49)
 - [Kubernetes クラスタに Argo CD をインストールして動かす - Zenn](https://zenn.dev/kou_pg_0131/articles/argocd-getting-started)
 - [Kubernetesのconfigmapやsecret更新時にワークロードをアップグレードしてくれるReloaderを触ってみた - Quitta](https://qiita.com/asmg07/items/b8e699bc30e5c16b2022)
