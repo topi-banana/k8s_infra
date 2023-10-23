@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: argocd.topi-banana.com
+  - host: admin.topi-banana.com
     http:
       paths:
       - path: /
