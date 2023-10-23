@@ -1,33 +1,3 @@
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: letsencrypt-prod
-spec:
-  acme:
-    email: "info@topi-banana.com"
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: lets-encrypt
-    solvers:
-    - dns01:
-        cloudDNS:
-          project: example-com
-          serviceAccountSecretRef:
-            name: prod-clouddns-svc-acct-secret
-            key: service-account.json
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: admin-tls-certficate
-spec:
-  secretName: admin-tls
-  dnsNames:
-  - admin.topi-banana.com
-  issuerRef:
-    name: letsencrypt-prod
-    kind: Issuer
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -37,12 +7,11 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     # Uncomment next if you use https://cert-manager.io/
-    cert-manager.io/cluster-issuer: letsencrypt-prod
     #cert-manager.io/cluster-issuer: "<YOUR CLUSTER ISSUER>"
 spec:
   ingressClassName: nginx
   rules:
-  - host: admin.topi-banana.com
+  - host: argocd.topi-banana.com
     http:
       paths:
       - path: /argocd/
@@ -52,6 +21,9 @@ spec:
             name: argocd-server
             port:
               name: https
+  - host: k8sdash.topi-banana.com
+    http:
+      paths:
       - path: /dashboard/
         pathType: Prefix
         backend:
@@ -61,5 +33,6 @@ spec:
               number: 443
   tls:
   - hosts:
-    - admin.topi-banana.com
+    - argocd.topi-banana.com
+    - k8sdash.topi-banana.com
     secretName: admin-tls
