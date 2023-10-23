@@ -27,8 +27,10 @@ spec:
       paths:
       - path: /dashboard/
         backend:
-          serviceName: kubernetes-dashboard
-          servicePort: 443
+          service:
+            name: kubernetes-dashboard
+            port:
+              number: 443
   tls:
   - hosts:
     - admin.topi-banana.com
