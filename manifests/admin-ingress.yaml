@@ -14,7 +14,7 @@ spec:
   - host: argocd.topi-banana.com
     http:
       paths:
-      - path: /argocd/
+      - path: /
         pathType: Prefix
         backend:
           service:
@@ -24,7 +24,7 @@ spec:
   - host: k8sdash.topi-banana.com
     http:
       paths:
-      - path: /dashboard/
+      - path: /
         pathType: Prefix
         backend:
           service:
