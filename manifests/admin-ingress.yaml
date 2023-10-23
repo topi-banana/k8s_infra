@@ -1,13 +1,43 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    email: "info@topi-banana.com"
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: lets-encrypt
+    solvers:
+    - dns01:
+        cloudDNS:
+          project: example-com
+          serviceAccountSecretRef:
+            name: prod-clouddns-svc-acct-secret
+            key: service-account.json
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: admin-tls-certficate
+spec:
+  secretName: admin-tls
+  dnsNames:
+  - admin.topi-banana.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: Issuer
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: admin-ingress
   namespace: kube-system
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     # Uncomment next if you use https://cert-manager.io/
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     #cert-manager.io/cluster-issuer: "<YOUR CLUSTER ISSUER>"
 spec:
   ingressClassName: nginx
