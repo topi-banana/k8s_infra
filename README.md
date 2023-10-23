@@ -27,14 +27,10 @@ Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-st
 - [--disable=traefik](https://docs.k3s.io/networking#:~:text=servers%20with%20the-,%2D%2Ddisable%3Dtraefik,-flag.)
 
 ```sh
-# tailscale 内のIPで
-export DB_ENDPOINT="mysql://k3s:k3s@tcp(xxx.xxx.xxx)/k3s"
-
 # このノードの tailscale IP
 export TAILSCALE_IP_NODE=$(tailscale ip -4)
-
-# ホームネットワーク等、アクセスに使うIP
-export EXTERNAL_IP_NODE="192.168.xxx.xxx"
+# Global IP
+export EXTERNAL_IP_NODE=""
 
 curl -sfL https://get.k3s.io | sh -s - server \
  --docker \
@@ -42,10 +38,21 @@ curl -sfL https://get.k3s.io | sh -s - server \
  --flannel-backend=wireguard-native \
  --disable=traefik \
  --write-kubeconfig-mode=644 \
- --datastore-endpoint=$DB_ENDPOINT \
- --node-ip=$TAILSCALE_IP_NODE \
+ --node-ip=$TAILSCALE_IP_NODE \     
  --node-external-ip=$EXTERNAL_IP_NODE \
  --advertise-address=$TAILSCALE_IP_NODE
+```
+```
+# このノードの tailscale IP
+export TAILSCALE_IP_NODE=$(tailscale ip -4)
+# Masterノードの tailscale IP
+export TAILSCALE_IP_MASTER=""
+
+curl -sfL https://get.k3s.io | sh -s - agent \
+ --server https://$(TAILSCALE_IP_MASTER):6443 \
+ --docker \
+ --token=topi \
+ --node-ip=$TAILSCALE_IP_NODE
 ```
 
 
