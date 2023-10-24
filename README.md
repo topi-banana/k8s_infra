@@ -1,4 +1,16 @@
 # k8s_infra
+```
+       | x.x.x.x グローバルIP
++------V-------+
+| topi-gateway | # 踏み台 
++--------------+
+       | 100.x.x.x
++------V------+ +---------------+ +----------
+| topi-master | | topi-server00 | | topi-server0...
++------|------+ +-------|-------+ +----------
+       +----------------+--------------------
+```
+
 
 ## 踏み台(レンタル鯖、クラウド等。グローバルIP持ち)
 - `Global IP` : グローバルIP。DNS-Aレコードでドメインに設定する
@@ -13,13 +25,14 @@ iptables -t nat -A POSTROUTING -j MASQUERADE
 [topi_banana/serversetting-cheatsheet.md (GithubGist)](https://gist.github.com/topi-banana/1916956b9c54af544dc576d3fe159e0b)
 ### k3s install
 Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-start)
-- [--flannel-backend=wireguard-native](https://github.com/k3s-io/k3s/issues/6255#issuecomment-1278872178)
+- ~~[--flannel-backend=wireguard-native](https://github.com/k3s-io/k3s/issues/6255#issuecomment-1278872178)~~
 - [--disable=traefik](https://docs.k3s.io/networking#:~:text=servers%20with%20the-,%2D%2Ddisable%3Dtraefik,-flag.)
+
 ```sh
 # このノードの tailscale IP
-export TAILSCALE_IP_NODE=$(tailscale ip -4)
+# export TAILSCALE_IP_NODE=$(tailscale ip -4)
 # Global IP
-export EXTERNAL_IP_NODE=""
+# export EXTERNAL_IP_NODE=""
 
 curl -sfL https://get.k3s.io | sh -s - server \
  --datastore-endpoint="mysql://k3s:k3s@tcp(topi-datastore)/k3s" \
