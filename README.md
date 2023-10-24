@@ -43,12 +43,12 @@ curl -sfL https://get.k3s.io | sh -s - server \
  --datastore-endpoint="mysql://k3s:k3s@tcp(topi-datastore)/k3s" \
  --docker \
  --token=topi \
- --flannel-backend=wireguard-native \
  --disable=traefik \
  --write-kubeconfig-mode=644 \
- --node-ip=$TAILSCALE_IP_NODE \
- --advertise-address=$TAILSCALE_IP_NODE \
- --node-external-ip=$EXTERNAL_IP_NODE
+ #--flannel-backend=wireguard-native \
+ #--node-ip=$TAILSCALE_IP_NODE \
+ #--advertise-address=$TAILSCALE_IP_NODE \
+ #--node-external-ip=$EXTERNAL_IP_NODE
 ```
 
 
