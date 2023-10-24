@@ -1,26 +1,16 @@
 # k8s_infra
 
-## k3s install
-### 事前準備
-#### 別で
-- DB* (MariaDB,MySQL,etc...)
-
-pass: `k3s`
-user: `k3s`
-db_name: `k3s`
-- NAS (nfs,ftp,etc...)
-
-```sh
-sudo apt install cifs-utils
+## 踏み台(レンタル鯖、クラウド等。グローバルIP持ち)
+- `Global IP` : グローバルIP。DNS-Aレコードでドメインに設定する
+- `Private IP` : 転送先IP。k8sクラスタのマスターノードのtailscale IP
+```
+iptables -t nat -A PREROUTING -d << Global IP >>> -j DNAT --to-destination <<< Private IP >>
+iptables -t nat -A POSTROUTING -j MASQUERADE
 ```
 
-k8s pv/pvc用
-#### 各ノードに
-- [tailscale](https://tailscale.com/download)
-- [docker](https://docs.docker.com/engine/install/ubuntu)
-
+## k8s-Cluster
+### OS setting
 [topi_banana/serversetting-cheatsheet.md (GithubGist)](https://gist.github.com/topi-banana/1916956b9c54af544dc576d3fe159e0b)
-
 ### k3s install
 Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-start)
 - [--flannel-backend=wireguard-native](https://github.com/k3s-io/k3s/issues/6255#issuecomment-1278872178)
