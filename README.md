@@ -34,21 +34,22 @@ Quick-Start Guide [https://docs.k3s.io/quick-start](https://docs.k3s.io/quick-st
 - [--disable=traefik](https://docs.k3s.io/networking#:~:text=servers%20with%20the-,%2D%2Ddisable%3Dtraefik,-flag.)
 
 ```sh
-# このノードの tailscale IP
-# export TAILSCALE_IP_NODE=$(tailscale ip -4)
-# Global IP
-# export EXTERNAL_IP_NODE=""
-
 curl -sfL https://get.k3s.io | sh -s - server \
- --datastore-endpoint="mysql://k3s:k3s@tcp(topi-datastore)/k3s" \
  --docker \
  --token=topi \
  --disable=traefik \
  --write-kubeconfig-mode=644 \
+ --datastore-endpoint="mysql://k3s:k3s@tcp(topi-datastore)/k3s" \
  #--flannel-backend=wireguard-native \
  #--node-ip=$TAILSCALE_IP_NODE \
  #--advertise-address=$TAILSCALE_IP_NODE \
  #--node-external-ip=$EXTERNAL_IP_NODE
+```
+```
+curl -sfL https://get.k3s.io | sh -s - agent \
+ --server https://topi-master:6443 \
+ --docker \
+ --token=topi \
 ```
 
 
