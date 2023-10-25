@@ -54,7 +54,7 @@ curl -sfL https://get.k3s.io | sh -s - agent \
 
 
 ## manifests
-- ~~[MetalLB (LoadBalancer)](https://metallb.universe.tf/installation/#installation-by-manifest)~~
+- [MetalLB (LoadBalancer)](https://metallb.universe.tf/installation/#installation-by-manifest)
 - ~~[Calico (CNI)](https://github.com/projectcalico/calico/blob/v3.26.3/manifests/calico.yaml)~~
 - [ArgoCD (GitOps)](https://argo-cd.readthedocs.io/en/stable/getting_started)
 - [ArgoCD ingress](https://raw.githubusercontent.com/topi-banana/k8s_infra/main/manifests/argocd-ingress.yaml)
