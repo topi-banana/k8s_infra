@@ -8,6 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     # Uncomment next if you use https://cert-manager.io/
     #cert-manager.io/cluster-issuer: "<YOUR CLUSTER ISSUER>"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
   rules:
