@@ -22,6 +22,7 @@ spec:
         volumeMounts:
         - mountPath: /mnt
           name: tikiba-buckups
+          subPath: tikiba/backups
       volumes:
       - name: tikiba-buckups
         nfs:
