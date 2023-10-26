@@ -121,11 +121,11 @@ spec:
           #  path: /home/topi/tikiba
           #  type: DirectoryOrCreate
           nfs:
-            server: 10.42.20.49
+            server: 10.43.20.49
             path: /tikiba/raw
           # persistentVolumeClaim:
           #  claimName: pvc-tikiba
         - name: mc-tikiba-buckups
           nfs:
-            server: 10.42.20.49
+            server: 10.43.20.49
             path: /tikiba/buckups
