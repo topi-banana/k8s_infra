@@ -33,7 +33,7 @@ spec:
       initContainers:
       - name: mc-tikiba-restore-backup
         image: itzg/mc-backup
-        command: restore-tar-backup
+        command: ["restore-tar-backup"]
         volumeMounts:
         - name: mc-tikiba
           mountPath: /data
