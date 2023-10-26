@@ -61,8 +61,7 @@ spec:
           volumeMounts:
             - name: rootdir
               mountPath: /home
-
       volumes:
         - name: rootdir
           persistentVolumeClaim:
-           claimName: pvc-root
+            claimName: pvc-root

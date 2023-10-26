@@ -12,7 +12,7 @@ data:
     
     # What should be the MOTD? This gets displayed when the player adds your server to
     # their server list. Only MiniMessage format is accepted.
-    motd = "<#09add3>A Velocity Server"
+    motd = "<#09add3>ちきば鯖 Management by topi-banana.com"
     
     # What should we display for the maximum number of players? (Velocity does not support a cap
     # on the number of players online.)
@@ -79,26 +79,26 @@ data:
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
     lobby = "127.0.0.1:30066"
-    tikiba = "mc-server-tikiba-svc:25565"
-    poteto = "mc-server-poteto-svc:25565"
-    test = "mc-server-test-svc:25565"
+    survival = "mc-tikiba-svc:25565"
+    creative = "mc-server-poteto-svc:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
-      "lobby"
+      #"lobby"
+      "survival"
     ]
     
     [forced-hosts]
     # Configure your forced hosts here.
-    "tikiba.topi-banana.com" = [
-      "tikiba"
-    ]
-    "poteto.topi-banana.com" = [
-      "poteto"
-    ]
-    "test.topi-banana.com" = [
-      "test"
-    ]
+    # "tikiba.topi-banana.com" = [
+    #   "tikiba"
+    # ]
+    # "poteto.topi-banana.com" = [
+    #   "poteto"
+    # ]
+    # "test.topi-banana.com" = [
+    #   "test"
+    # ]
     
     [advanced]
     # How large a Minecraft packet has to be before we compress it. Setting this to zero will
@@ -121,7 +121,7 @@ data:
     
     # Enables compatibility with HAProxy's PROXY protocol. If you don't know what this is for, then
     # don't enable it.
-    haproxy-protocol = false
+    haproxy-protocol = true
     
     # Enables TCP fast open support on the proxy. Requires the proxy to run on Linux.
     tcp-fast-open = false

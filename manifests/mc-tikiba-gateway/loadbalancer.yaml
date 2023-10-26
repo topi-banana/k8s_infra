@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: velocity
 spec:
-  type: LoadBalancer
+  #type: LoadBalancer
   ports:
     - name: velo
       port: 25565
