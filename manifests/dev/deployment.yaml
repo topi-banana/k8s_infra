@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dev
+  name: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev
+  template:
+    metadata:
+      labels:
+        app: dev
+    spec:
+      containers:
+      - name: dev
+        image: tsl0922/ttyd:alpine
+        ports:
+        - containerPort: 7681
+        volumeMounts:
+        - mountPath: /mnt
+          name: tikiba-buckups
+      volumes:
+        - name: tikiba-buckups
+          nfs:
+            server: 10.42.20.49
+            path: /tikiba/buckups
