@@ -18,11 +18,11 @@ spec:
       containers:
       - name: nfs-server
         image: itsthenetwork/nfs-server-alpine
-        - env:
-          - name: SHARED_DIRECTORY
-            value: /exports
-          - name: SYNC
-            value: "true"
+        env:
+        - name: SHARED_DIRECTORY
+          value: /exports
+        - name: SYNC
+          value: "true"
         securityContext:
           privileged: true
         ports:
