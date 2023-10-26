@@ -12,12 +12,12 @@ spec:
   pollingInterval:  30
   cooldownPeriod:   30
   triggers:
-    - type: cron
-      metadata:
-        timezone: Asia/Tokyo
-        # "月: 04:06 (https://crontab.guru/)
-        start: 1 12 * * *
-        end: 0 12 * * *
-        desiredReplicas: '1'
+  - type: cron
+    metadata:
+      timezone: Asia/Tokyo
+      # "月: 04:06 (https://crontab.guru/)
+      start: 1 12 * * *
+      end: 0 12 * * *
+      desiredReplicas: '1'
   minReplicaCount: 0 # 何も条件がない場合はスケール数が minReplicaCount になる(cronが発火している間イベント駆動で desiredReplicas にスケール)
   maxReplicaCount: 1
