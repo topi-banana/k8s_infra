@@ -6,7 +6,7 @@ spec:
   selector:
     app: nfs-server
   type: ClusterIP
-  clusterIP: 10.42.20.49
+  clusterIP: 10.43.20.49
   ports:
     - name: nfs-server
       protocol: TCP
