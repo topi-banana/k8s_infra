@@ -91,7 +91,7 @@ data:
     [forced-hosts]
     # Configure your forced hosts here.
     "tikiba.topi-banana.com" = [
-      "tikiba_survival"
+      "tikiba_lobby"
     ]
     # "poteto.topi-banana.com" = [
     #   "poteto"

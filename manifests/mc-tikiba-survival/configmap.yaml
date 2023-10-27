@@ -64,7 +64,10 @@ data:
     resource-pack-sha1=
     max-world-size=29999984
   FabricProxy-Lite.toml: |
-    secret = topi
+    hackOnlineMode = true
+    hackEarlySend = false
+    hackMessageChain = true
+    secret = "topi"
   permissions.yml: |
     tabtps.defaultdisplay:
       default: true

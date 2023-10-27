@@ -70,15 +70,12 @@ spec:
         - containerPort: 25565
           name: mc-tikiba
         volumeMounts:
-        # - name: mc-server-tikiba-config
-        #   mountPath: /config/config/paper-global.yml
-        #   subPath: paper-global.yml
         - name: mc-tikiba-config
           mountPath: /config/server.properties
           subPath: server.properties
-        # - name: mc-tikiba-config
-        #   mountPath: /config/config/FabricProxy-Lite.toml
-        #   subPath: FabricProxy-Lite.toml
+        - name: mc-tikiba-config
+          mountPath: /config/config/FabricProxy-Lite.toml
+          subPath: FabricProxy-Lite.toml
         - name: mc-tikiba-raw
           mountPath: /data
         resources:
