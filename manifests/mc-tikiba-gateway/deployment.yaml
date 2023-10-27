@@ -57,10 +57,10 @@ spec:
         #   periodSeconds: 20
         volumeMounts:
         - name: mc-velocity-tikiba-config
-          mountPath: /server/velocity.toml
+          mountPath: /config/velocity.toml
           subPath: velocity.toml
         - name: mc-velocity-tikiba-config
-          mountPath: /server/forwarding.secret
+          mountPath: /config/forwarding.secret
           subPath: forwarding.secret
       volumes:
       - name: mc-velocity-tikiba-config
