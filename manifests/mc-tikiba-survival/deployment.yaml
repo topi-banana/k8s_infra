@@ -35,9 +35,8 @@ spec:
         image: itzg/mc-backup
         command: ["restore-tar-backup"]
         volumeMounts:
-        - name: mc-tikiba
+        - name: mc-tikiba-raw
           mountPath: /data
-          subPath: tikiba/raw
         - name: mc-tikiba
           mountPath: /backups
           subPath: tikiba/backups
@@ -84,9 +83,8 @@ spec:
         - name: mc-tikiba-config
           mountPath: /config/server.properties
           subPath: server.properties
-        - name: mc-tikiba
+        - name: mc-tikiba-raw
           mountPath: /data
-          subPath: tikiba/raw
         resources:
           requests:
             memory: 4G
@@ -112,9 +110,8 @@ spec:
             logs,
             *.tmp
         volumeMounts:
-        - name: mc-tikiba
+        - name: mc-tikiba-raw
           mountPath: /data
-          subPath: tikiba/raw
         - name: mc-tikiba
           mountPath: /backups
           subPath: tikiba/backups
@@ -122,6 +119,7 @@ spec:
         - name: mc-tikiba-config
           configMap:
             name: mc-server-tikiba-config
-        - name: mc-tikiba
+        - name: mc-tikiba-raw
+        - name: mc-tikiba-buckups
           persistentVolumeClaim:
             claimName: root-pvc
