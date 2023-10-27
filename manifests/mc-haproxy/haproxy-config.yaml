@@ -9,7 +9,7 @@ data:
       bind 0.0.0.0:25565                        # Minecraftポート(25565)で待ち受け
       tcp-request inspect-delay 5s              # 最大5秒の遅延までOK（SSLやSMTPでは必要だけどMinecraftでは要らないかも）
 
-      use-backend mc_tikiba if { req.payload(0,0),lower -m sub tikiba.topi-banana.com }
+      use_backend mc_tikiba if { req.payload(0,0),lower -m sub tikiba.topi-banana.com }
       
       # acl mc_tikiba_flg payload(4,4) -m sub tikiba  # ドメイン名の先頭4文字がtikibaなら
       # tcp-request content accept if mc_dev1_flg # 受け入れる
