@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-tikiba-survival
+  name: mc-tikiba-survival-config
 data:
   server.properties: |
     #Minecraft server properties
