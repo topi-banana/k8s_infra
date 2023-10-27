@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: velocity
+  name: mc-velocity-tikiba
 spec:
   #type: LoadBalancer
   ports:
@@ -11,4 +11,4 @@ spec:
       protocol: TCP
       targetPort: velocity
   selector:
-    app: velocity
+    app: mc-velocity-tikiba

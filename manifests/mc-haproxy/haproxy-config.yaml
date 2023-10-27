@@ -17,7 +17,7 @@ data:
 
     backend mc_tikiba
       mode                        tcp
-      server                      default mc_tikiba:22565 send-proxy-v2
+      server                      default mc-tikiba-svc:22565 send-proxy-v2
 
     # backend bk-ssh-server
     #   mode                        tcp

@@ -21,13 +21,13 @@ spec:
           image: haproxy:2.9-dev8-alpine3.18
           name: mc-server-test
           ports:
-            - containerPort: 25565
-              name: mc-main
+          - containerPort: 25565
+            name: mc-main
           volumeMounts:
-            - name: haproxy-config
-              mountPath: /usr/local/etc/haproxy/haproxy.cfg
-              subPath: haproxy.cfg
+          - name: haproxy-config
+            mountPath: /usr/local/etc/haproxy/haproxy.cfg
+            subPath: haproxy.cfg
       volumes:
-        - name: haproxy-config
-          configMap:
-            name: haproxy-config
+      - name: haproxy-config
+        configMap:
+          name: haproxy-config

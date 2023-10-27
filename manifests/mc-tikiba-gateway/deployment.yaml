@@ -2,12 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: velocity
-  name: velocity
-  # We wish this deployment to be reloaded
-  # when "velocity-config" ConfigMap are updated
+    app: mc-velocity-tikiba
+  name: mc-velocity-tikiba
   annotations:
-    configmap.reloader.stakater.com/reload: "velocity-config"
+    configmap.reloader.stakater.com/reload: "mc-velocity-tikiba-config"
 spec:
   # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
   # 参考: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#replicas
@@ -58,24 +56,13 @@ spec:
           #   failureThreshold: 6
           #   periodSeconds: 20
           volumeMounts:
-            # itzg/bungeecord は /config に設定ファイルをマウントしておけばコピーをしてくれる。
-            # 環境変数の置き換えはPrefix等の設定が必要なので、必要になったら設定するように。
-            # https://github.com/itzg/docker-bungeecord/tree/9113d93882d1945d5469141b77eb922233842be9#volumes
-            - name: velocity-config
+            - name: mc-velocity-tikiba-config
               mountPath: /config/velocity.toml
               subPath: velocity.toml
-            - name: velocity-config
+            - name: mc-velocity-tikiba-config
               mountPath: /config/forwarding.secret
               subPath: forwarding.secret
-            # 普通にマウントすると、auto-update (常に最新のvolume内容がコンテナ内から見える) の挙動を
-            # 提供するために symlink による一時ディレクトリがマウントされることになるが、
-            # itzg/bungeecord が利用するファイル同期の仕組み (itzg/mc-image-helper) は
-            # symlink を展開してしまうため、設定ファイルのパスが壊れてしまう。
-            #
-            # subPathを利用してマウントすればsymlinkが作られることを回避できるためそのようにしている。
-            # 参考: https://stackoverflow.com/a/63114800
-            # 参考: https://stackoverflow.com/a/50687707
       volumes:
-        - name: velocity-config
+        - name: mc-velocity-tikiba-config
           configMap:
-            name: velocity-config
+            name: mc-velocity-tikiba-config

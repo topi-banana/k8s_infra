@@ -6,9 +6,5 @@ spec:
   selector:
     app: mc-tikiba
   ports:
-  - name: mc-tikiba
-    port: 25565
+  - port: 25565
     targetPort: mc-tikiba
-  - name: mc-tikiba-rcon
-    port: 25575
-    targetPort: mc-tikiba-rcon

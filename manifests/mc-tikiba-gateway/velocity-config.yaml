@@ -80,7 +80,7 @@ data:
     # represents the IP address of the server to connect to.
     lobby = "127.0.0.1:30066"
     survival = "mc-tikiba-svc:25565"
-    creative = "mc-server-poteto-svc:25565"
+    creative = "mc-tikiba-creative-svc:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
@@ -88,7 +88,7 @@ data:
       "survival"
     ]
     
-    [forced-hosts]
+    #[forced-hosts]
     # Configure your forced hosts here.
     # "tikiba.topi-banana.com" = [
     #   "tikiba"
