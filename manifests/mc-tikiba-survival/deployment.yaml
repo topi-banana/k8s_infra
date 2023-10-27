@@ -96,7 +96,7 @@ spec:
         - name: RCON_HOST
           value: "mc-tikiba-main"
         - name: RCON_RETRIES
-          value: -1
+          value: "-1"
         - name: INITIAL_DELAY
           value: "0"
         - name: TZ
