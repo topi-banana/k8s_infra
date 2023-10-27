@@ -3,7 +3,7 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  name: cron-scaledobject-mc-tikiba
+  name: cron-scaledobject-mc-tikiba-lobby
 spec:
   scaleTargetRef:
     name: mc-tikiba-lobby
