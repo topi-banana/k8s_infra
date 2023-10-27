@@ -13,6 +13,7 @@ spec:
   - file_mode=0777
   - vers=3.0
   - guest
+  - rw
   csi:
     driver: smb.csi.k8s.io
     readOnly: false
