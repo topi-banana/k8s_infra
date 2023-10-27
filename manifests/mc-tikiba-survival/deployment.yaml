@@ -84,10 +84,12 @@ spec:
         env:
         - name: BACKUP_INTERVAL
           value: "12h"
-        - name: RCON_HOST
-          value: "mc-tikiba-svc"
-        - name: RCON_PORT
-          value: "25575"
+        #- name: RCON_HOST
+        #  value: "mc-tikiba-svc"
+        #- name: RCON_PORT
+        #  value: "25575"
+        - name: RCON_PASSWORD
+          value: "minecraft"
         - name: RCON_RETRIES
           value: "-1"
         - name: INITIAL_DELAY
