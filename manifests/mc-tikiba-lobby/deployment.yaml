@@ -66,9 +66,6 @@ spec:
           subPath: server.properties
         - name: mc-tikiba-raw
           mountPath: /data
-        resources:
-          requests:
-            memory: 4G
       - name: mc-tikiba-buckup
         image: itzg/mc-backup
         env:
