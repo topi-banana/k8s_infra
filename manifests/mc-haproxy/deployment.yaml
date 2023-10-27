@@ -11,22 +11,22 @@ spec:
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: mc-server-test
+      app: mc-main
   template:
     metadata:
       labels:
-        app: mc-server-test
+        app: mc-main
     spec:
       containers:
-          image: haproxy:2.9-dev8-alpine3.18
-          name: mc-server-test
-          ports:
-          - containerPort: 25565
-            name: mc-main
-          volumeMounts:
-          - name: haproxy-config
-            mountPath: /usr/local/etc/haproxy/haproxy.cfg
-            subPath: haproxy.cfg
+      - image: haproxy:2.9-dev8-alpine3.18
+        name: mc-main
+        ports:
+        - containerPort: 25565
+          name: mc-main
+        volumeMounts:
+        - name: haproxy-config
+          mountPath: /usr/local/etc/haproxy/haproxy.cfg
+          subPath: haproxy.cfg
       volumes:
       - name: haproxy-config
         configMap:
