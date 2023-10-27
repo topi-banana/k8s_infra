@@ -67,8 +67,8 @@ spec:
             https://cdn-raw.modrinth.com/data/lfHFW1mp/versions/O5jKsqSz/journeymap-1.20.2-5.9.15-fabric.jar,
             https://cdn-raw.modrinth.com/data/VX3TgwQh/versions/XiXJeZ6p/carpet-extra-1.20.2-1.4.118.jar,
             https://cdn-raw.modrinth.com/data/TQTTVgYE/versions/xksYKkvF/fabric-carpet-1.20.2-1.4.121+v231011.jar,
-            https://cdn-raw.modrinth.com/data/bfneejKo/versions/chakoRye/syncmatica-1.20.1-0.3.10.jar,
-            https://cdn-raw.modrinth.com/data/EsAfCjCV/versions/JNKPokGG/appleskin-fabric-mc1.20.2-2.5.1.jar
+            https://cdn-raw.modrinth.com/data/EsAfCjCV/versions/JNKPokGG/appleskin-fabric-mc1.20.2-2.5.1.jar,
+          #  https://cdn-raw.modrinth.com/data/bfneejKo/versions/chakoRye/syncmatica-1.20.1-0.3.10.jar,
         - name: COPY_CONFIG_DEST
           value: /data
         - name: TZ
