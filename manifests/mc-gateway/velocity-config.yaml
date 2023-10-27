@@ -79,7 +79,7 @@ data:
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
     lobby = "127.0.0.1:30066"
-    tikiba_lobby = "mc-tikiba-lobby-svc:30066"
+    tikiba_lobby = "mc-tikiba-lobby-svc:25565"
     tikiba_survival = "mc-tikiba-survival-svc:25565"
     #tikiba_creative = ":25565"
     
