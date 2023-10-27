@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: mc-haproxy
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 25565
     protocol: TCP
