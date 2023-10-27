@@ -96,7 +96,7 @@ spec:
         - name: BACKUP_INTERVAL
           value: "12h"
         - name: RCON_HOST
-          value: "mc-tikiba-svc"
+          value: "mc-tikiba-main"
         - name: RCON_PASSWORD
           value: "minecraft"
         - name: INITIAL_DELAY
