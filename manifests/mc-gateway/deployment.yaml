@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: mc-velocity-tikiba
-  name: mc-velocity-tikiba
+    app: mc-gateway
+  name: mc-gateway
   annotations:
-    configmap.reloader.stakater.com/reload: "mc-velocity-tikiba-config"
+    configmap.reloader.stakater.com/reload: "mc-gateway-config"
 spec:
   # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
   # 参考: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#replicas
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: velocity
+      app: mc-gateway
   template:
     metadata:
       labels:
-        app: velocity
+        app: mc-gateway
     spec:
       # initContainers:
       #   - name: velocity-config-downloader
@@ -56,13 +56,13 @@ spec:
         #   failureThreshold: 6
         #   periodSeconds: 20
         volumeMounts:
-        - name: mc-velocity-tikiba-config
+        - name: mc-gateway-config
           mountPath: /config/velocity.toml
           subPath: velocity.toml
-        - name: mc-velocity-tikiba-config
+        - name: mc-gateway-config
           mountPath: /config/forwarding.secret
           subPath: forwarding.secret
       volumes:
-      - name: mc-velocity-tikiba-config
+      - name: mc-gateway-config
         configMap:
-          name: mc-velocity-tikiba-config
+          name: mc-gateway-config

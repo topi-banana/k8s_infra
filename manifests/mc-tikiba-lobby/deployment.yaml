@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: mc-tikiba-survival
-  name: mc-tikiba-survival
+    app: mc-tikiba-lobby
+  name: mc-tikiba-lobby
   annotations:
-    configmap.reloader.stakater.com/reload: "mc-tikiba-survival-config"
+    configmap.reloader.stakater.com/reload: "mc-tikiba-lobby-config"
 spec:
   replicas: 1
   # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
@@ -13,11 +13,11 @@ spec:
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: mc-tikiba-survival
+      app: mc-tikiba-lobby
   template:
     metadata:
       labels:
-        app: mc-tikiba-survival
+        app: mc-tikiba-lobby
     spec:
       initContainers:
       - name: mc-tikiba-restore-backup
@@ -35,35 +35,21 @@ spec:
         env:
         - name: EULA
           value: "TRUE"
-        - name: MEMORY
-          value: 4G
         - name: DIFFICULTY
-          value: "hard"
+          value: peaceful
         - name: MODE
-          value: "survival"
+          value: adventure
         - name: VERSION
           value: 1.20.1
         - name: TYPE
-          value: FABRIC
+          value: PAPER
         - name: RCON_PASSWORD
           value: "minecraft"
         - name: OPS
           value: topi_banana,tikiba7
-        - name: MODS
+        - name: PULGINS
           value: >-
-            https://cdn-raw.modrinth.com/data/1u6JkXh5/versions/ans4Koju/worldedit-bukkit-7.3.0-beta-02.jar,
-            https://cdn-raw.modrinth.com/data/TQTTVgYE/versions/K0Wj117C/fabric-carpet-1.20-1.4.112+v230608.jar,
-            https://cdn-raw.modrinth.com/data/EsAfCjCV/versions/xcauwnEB/appleskin-fabric-mc1.20.1-2.5.1.jar,
-            https://cdn-raw.modrinth.com/data/lfHFW1mp/versions/IGl8mdYv/journeymap-1.20.1-5.9.15-fabric.jar,
-            https://mediafilez.forgecdn.net/files/4586/218/worldedit-mod-7.2.15.jar,
-            https://cdn-raw.modrinth.com/data/P7dR8mSH/versions/TpZ2i93f/fabric-api-0.90.4+1.20.1.jar,
-            https://cdn-raw.modrinth.com/data/bfneejKo/versions/chakoRye/syncmatica-1.20.1-0.3.10.jar
-          #  https://cdn-raw.modrinth.com/data/P7dR8mSH/versions/ZI1BEw1i/fabric-api-0.90.4+1.20.2.jar,
-          #  https://cdn-raw.modrinth.com/data/1u6JkXh5/versions/ans4Koju/worldedit-bukkit-7.3.0-beta-02.jar,
-          #  https://cdn-raw.modrinth.com/data/lfHFW1mp/versions/O5jKsqSz/journeymap-1.20.2-5.9.15-fabric.jar,
-          #  https://cdn-raw.modrinth.com/data/VX3TgwQh/versions/XiXJeZ6p/carpet-extra-1.20.2-1.4.118.jar,
-          #  https://cdn-raw.modrinth.com/data/TQTTVgYE/versions/xksYKkvF/fabric-carpet-1.20.2-1.4.121+v231011.jar,
-          #  https://cdn-raw.modrinth.com/data/EsAfCjCV/versions/JNKPokGG/appleskin-fabric-mc1.20.2-2.5.1.jar,
+            https://cdn-raw.modrinth.com/data/1u6JkXh5/versions/ans4Koju/worldedit-bukkit-7.3.0-beta-02.jar
         - name: COPY_CONFIG_DEST
           value: /data
         - name: TZ
@@ -87,7 +73,7 @@ spec:
         image: itzg/mc-backup
         env:
         - name: BACKUP_NAME
-          value: "tikiba-survival"
+          value: "tikiba-lobby"
         - name: BACKUP_INTERVAL
           value: "12h"
         - name: RCON_PASSWORD
@@ -115,7 +101,7 @@ spec:
       volumes:
         - name: mc-tikiba-config
           configMap:
-            name: mc-tikiba-survival-config
+            name: mc-tikiba-lobby-config
         - name: mc-tikiba-raw
         - name: mc-tikiba-buckups
           persistentVolumeClaim:

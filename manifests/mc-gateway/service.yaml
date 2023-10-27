@@ -2,8 +2,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mc-velocity-tikiba
+  name: mc-gateway
 spec:
+  type: NodePort
   #type: LoadBalancer
   ports:
     - name: velo
@@ -11,4 +12,4 @@ spec:
       protocol: TCP
       targetPort: velocity
   selector:
-    app: mc-velocity-tikiba
+    app: mc-gateway

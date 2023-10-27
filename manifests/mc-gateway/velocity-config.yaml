@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-velocity-tikiba-config
+  name: mc-gateway-config
 data:
   velocity.toml: |
     # Config version. Do not change this
@@ -79,19 +79,19 @@ data:
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
     lobby = "127.0.0.1:30066"
-    survival = "mc-tikiba-svc:25565"
-    #creative = "mc-tikiba-creative-svc:25565"
+    tikiba_lobby = "mc-tikiba-lobby-svc:30066"
+    tikiba_survival = "mc-tikiba-survival-svc:25565"
+    #tikiba_creative = ":25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
-      #"lobby"
-      "survival"
+      "lobby"
     ]
     
     [forced-hosts]
     # Configure your forced hosts here.
-    "tikitiki.topi-banana.com" = [
-      "survival"
+    "tikiba.topi-banana.com" = [
+      "tikiba_lobby"
     ]
     # "poteto.topi-banana.com" = [
     #   "poteto"
@@ -121,7 +121,7 @@ data:
     
     # Enables compatibility with HAProxy's PROXY protocol. If you don't know what this is for, then
     # don't enable it.
-    haproxy-protocol = true
+    haproxy-protocol = false
     
     # Enables TCP fast open support on the proxy. Requires the proxy to run on Linux.
     tcp-fast-open = false
