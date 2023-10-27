@@ -42,7 +42,7 @@ spec:
         - name: MODE
           value: "survival"
         - name: VERSION
-          value: 1.20.2
+          value: 1.20.1
         - name: TYPE
           value: FABRIC
         - name: RCON_PASSWORD
@@ -51,14 +51,19 @@ spec:
           value: topi_banana,tikiba7
         - name: MODS
           value: >-
-            https://cdn-raw.modrinth.com/data/P7dR8mSH/versions/ZI1BEw1i/fabric-api-0.90.4+1.20.2.jar,
-            https://cdn-raw.modrinth.com/data/1u6JkXh5/versions/ans4Koju/worldedit-bukkit-7.3.0-beta-02.jar,
-            https://cdn-raw.modrinth.com/data/lfHFW1mp/versions/O5jKsqSz/journeymap-1.20.2-5.9.15-fabric.jar,
-            https://cdn-raw.modrinth.com/data/VX3TgwQh/versions/XiXJeZ6p/carpet-extra-1.20.2-1.4.118.jar,
-            https://cdn-raw.modrinth.com/data/TQTTVgYE/versions/xksYKkvF/fabric-carpet-1.20.2-1.4.121+v231011.jar,
-            https://cdn-raw.modrinth.com/data/EsAfCjCV/versions/JNKPokGG/appleskin-fabric-mc1.20.2-2.5.1.jar,
             https://cdn-raw.modrinth.com/data/8dI2tmqs/versions/XJmDAnj5/FabricProxy-Lite-2.6.0.jar,
-          #  https://cdn-raw.modrinth.com/data/bfneejKo/versions/chakoRye/syncmatica-1.20.1-0.3.10.jar,
+            https://cdn-raw.modrinth.com/data/TQTTVgYE/versions/K0Wj117C/fabric-carpet-1.20-1.4.112+v230608.jar,
+            https://cdn-raw.modrinth.com/data/EsAfCjCV/versions/xcauwnEB/appleskin-fabric-mc1.20.1-2.5.1.jar,
+            https://cdn-raw.modrinth.com/data/lfHFW1mp/versions/IGl8mdYv/journeymap-1.20.1-5.9.15-fabric.jar,
+            https://mediafilez.forgecdn.net/files/4586/218/worldedit-mod-7.2.15.jar,
+            https://cdn-raw.modrinth.com/data/P7dR8mSH/versions/TpZ2i93f/fabric-api-0.90.4+1.20.1.jar,
+            https://cdn-raw.modrinth.com/data/bfneejKo/versions/chakoRye/syncmatica-1.20.1-0.3.10.jar
+          #  https://cdn-raw.modrinth.com/data/P7dR8mSH/versions/ZI1BEw1i/fabric-api-0.90.4+1.20.2.jar,
+          #  https://cdn-raw.modrinth.com/data/1u6JkXh5/versions/ans4Koju/worldedit-bukkit-7.3.0-beta-02.jar,
+          #  https://cdn-raw.modrinth.com/data/lfHFW1mp/versions/O5jKsqSz/journeymap-1.20.2-5.9.15-fabric.jar,
+          #  https://cdn-raw.modrinth.com/data/VX3TgwQh/versions/XiXJeZ6p/carpet-extra-1.20.2-1.4.118.jar,
+          #  https://cdn-raw.modrinth.com/data/TQTTVgYE/versions/xksYKkvF/fabric-carpet-1.20.2-1.4.121+v231011.jar,
+          #  https://cdn-raw.modrinth.com/data/EsAfCjCV/versions/JNKPokGG/appleskin-fabric-mc1.20.2-2.5.1.jar,
         - name: COPY_CONFIG_DEST
           value: /data
         - name: TZ
