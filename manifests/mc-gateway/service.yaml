@@ -4,8 +4,8 @@ kind: Service
 metadata:
   name: mc-gateway
 spec:
-  type: NodePort
-  #type: LoadBalancer
+  #type: NodePort
+  type: LoadBalancer
   ports:
     - name: velo
       port: 25565
