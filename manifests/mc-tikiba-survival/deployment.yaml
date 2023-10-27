@@ -37,7 +37,7 @@ spec:
         volumeMounts:
         - name: mc-tikiba-raw
           mountPath: /data
-        - name: mc-tikiba
+        - name: mc-tikiba-buckups
           mountPath: /backups
           subPath: tikiba/backups
       containers:
@@ -112,7 +112,7 @@ spec:
         volumeMounts:
         - name: mc-tikiba-raw
           mountPath: /data
-        - name: mc-tikiba
+        - name: mc-tikiba-buckups
           mountPath: /backups
           subPath: tikiba/backups
       volumes:
