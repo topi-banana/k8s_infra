@@ -33,36 +33,36 @@ spec:
       #       - "-c"
       #       - 'wget -O /root/download/config.yml "${URL}"'
       containers:
-        - resources:
-            requests:
-              memory: 768Mi
-          env:
-            - name: MEMORY
-              value: 768m
-            - name: TYPE
-              value: VELOCITY
-            - name: PLUGINS
-              value: >-
-                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/4.8.0/PAPER/ViaVersion-4.8.0.jar
-          image: itzg/bungeecord:java17-2022.4.1
-          name: velocity
-          ports:
-            - name: velocity
-              containerPort: 25577
-          # startupProbe:
-          #   tcpSocket:
-          #     port: 25577
-          #   # 最大120秒待つ
-          #   failureThreshold: 6
-          #   periodSeconds: 20
-          volumeMounts:
-            - name: mc-velocity-tikiba-config
-              mountPath: /config/velocity.toml
-              subPath: velocity.toml
-            - name: mc-velocity-tikiba-config
-              mountPath: /config/forwarding.secret
-              subPath: forwarding.secret
-      volumes:
+      - resources:
+          requests:
+            memory: 768Mi
+        env:
+        - name: MEMORY
+          value: 768m
+        - name: TYPE
+          value: VELOCITY
+        - name: PLUGINS
+          value: >-
+            https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/4.8.0/PAPER/ViaVersion-4.8.0.jar
+        image: itzg/bungeecord:java17-2022.4.1
+        name: velocity
+        ports:
+        - name: velocity
+          containerPort: 25577
+        # startupProbe:
+        #   tcpSocket:
+        #     port: 25577
+        #   # 最大120秒待つ
+        #   failureThreshold: 6
+        #   periodSeconds: 20
+        volumeMounts:
         - name: mc-velocity-tikiba-config
-          configMap:
-            name: mc-velocity-tikiba-config
+          mountPath: /server/velocity.toml
+          subPath: velocity.toml
+        - name: mc-velocity-tikiba-config
+          mountPath: /server/forwarding.secret
+          subPath: forwarding.secret
+      volumes:
+      - name: mc-velocity-tikiba-config
+        configMap:
+          name: mc-velocity-tikiba-config
