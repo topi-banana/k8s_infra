@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-smb
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - vers=3.0
+  - guest
+  csi:
+    driver: smb.csi.k8s.io
+    readOnly: false
+    volumeHandle: VOLUME_ID
+    volumeAttributes:
+      source: "//topi-server00/root"

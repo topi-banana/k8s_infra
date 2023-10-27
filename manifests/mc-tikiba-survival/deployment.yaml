@@ -126,3 +126,6 @@ spec:
           nfs:
             server: 10.43.20.49
             path: /
+        - name: root-pvc
+          persistentVolumeClaim:
+            claimName: root-pvc
