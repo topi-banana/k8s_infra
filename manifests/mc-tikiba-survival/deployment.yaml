@@ -45,13 +45,10 @@ spec:
           value: 1.20.1
         - name: TYPE
           value: FABRIC
-        - name: RCON_PASSWORD
-          value: "minecraft"
         - name: OPS
           value: topi_banana,tikiba7
         - name: MODS
           value: >-
-            https://cdn-raw.modrinth.com/data/1u6JkXh5/versions/ans4Koju/worldedit-bukkit-7.3.0-beta-02.jar,
             https://cdn-raw.modrinth.com/data/TQTTVgYE/versions/K0Wj117C/fabric-carpet-1.20-1.4.112+v230608.jar,
             https://cdn-raw.modrinth.com/data/EsAfCjCV/versions/xcauwnEB/appleskin-fabric-mc1.20.1-2.5.1.jar,
             https://cdn-raw.modrinth.com/data/lfHFW1mp/versions/IGl8mdYv/journeymap-1.20.1-5.9.15-fabric.jar,
@@ -78,6 +75,9 @@ spec:
         - name: mc-tikiba-config
           mountPath: /config/server.properties
           subPath: server.properties
+        - name: mc-tikiba-config
+          mountPath: /config/config/FabricProxy-Lite.toml
+          subPath: FabricProxy-Lite.toml
         - name: mc-tikiba-raw
           mountPath: /data
         resources:
