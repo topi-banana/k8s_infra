@@ -41,6 +41,8 @@ spec:
           value: "hard"
         - name: MODE
           value: "survival"
+        - name: RCON_PASSWORD
+          value: "minecraft"
         - name: VERSION
           value: 1.20.1
         - name: TYPE
@@ -72,8 +74,6 @@ spec:
         - containerPort: 25565
           name: mc-tikiba
         volumeMounts:
-        - name: RCON_PASSWORD
-          value: "minecraft"
         - name: mc-tikiba-config
           mountPath: /config/server.properties
           subPath: server.properties
