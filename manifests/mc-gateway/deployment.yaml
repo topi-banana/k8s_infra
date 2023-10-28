@@ -44,17 +44,17 @@ spec:
         - name: PLUGINS
           value: >-
             https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/4.8.0/PAPER/ViaVersion-4.8.0.jar
+        - name: ENABLE_RCON
+          value: VELOCITY
+        - name: RCON_PORT
+          value: "25575"
+        - name: RCON_PASSWORD
+          value: minecraft
         image: itzg/bungeecord:java17-2022.4.1
         name: velocity
         ports:
         - name: velocity
           containerPort: 25577
-        # startupProbe:
-        #   tcpSocket:
-        #     port: 25577
-        #   # 最大120秒待つ
-        #   failureThreshold: 6
-        #   periodSeconds: 20
         volumeMounts:
         - name: mc-gateway-config
           mountPath: /config/velocity.toml

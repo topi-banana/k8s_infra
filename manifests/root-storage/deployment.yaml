@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: root-storage
+  name: root-storage
+spec:
+  replicas: 1
+  # レプリカ数の制御を ScaledObject に任せるため、 replicas は指定しない
+  # 参考: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#replicas
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: root-storage
+  template:
+    metadata:
+      labels:
+        app: root-storage
+    spec:
+      containers:
+      - name: filebrowser
+        image: filebrowser/filebrowser
+        ports:
+        - containerPort: 80
+          name: filebrowser
+        volumeMounts:
+        - name: main-storage
+          mountPath: /srv
+      volumes:
+        - name: main-storage
+          persistentVolumeClaim:
+            claimName: root-pvc
