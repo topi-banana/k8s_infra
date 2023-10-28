@@ -75,7 +75,7 @@ spec:
         - name: BACKUP_NAME
           value: "tikiba-lobby"
         - name: BACKUP_INTERVAL
-          value: "24h"
+          value: "1h"
         - name: RCON_PASSWORD
           value: "minecraft"
         - name: RCON_RETRIES
