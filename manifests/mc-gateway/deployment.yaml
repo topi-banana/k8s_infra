@@ -63,6 +63,9 @@ spec:
         - name: mc-gateway-config
           mountPath: /config/forwarding.secret
           subPath: forwarding.secret
+        - name: mc-gateway-config
+          mountPath: /config/plugins/velocityrcon/rcon.toml
+          subPath: rcon.toml
       volumes:
       - name: mc-gateway-config
         configMap:
