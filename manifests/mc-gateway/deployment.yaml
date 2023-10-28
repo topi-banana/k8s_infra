@@ -44,7 +44,7 @@ spec:
         - name: PLUGINS
           value: >-
             https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/4.8.0/PAPER/ViaVersion-4.8.0.jar,
-            https://github.com/ygtdmn/VelocityRcon/releases/download/v1.1/VelocityRcon.jar
+            https://cdn-raw.modrinth.com/data/axTqSWQA/versions/gVctECs8/Advanced-Portals-0.9.3.jar
         - name: ENABLE_RCON
           value: VELOCITY
         - name: RCON_PORT
@@ -63,9 +63,6 @@ spec:
         - name: mc-gateway-config
           mountPath: /config/forwarding.secret
           subPath: forwarding.secret
-        - name: mc-gateway-config
-          mountPath: /config/plugins/velocityrcon/rcon.toml
-          subPath: rcon.toml
       volumes:
       - name: mc-gateway-config
         configMap:

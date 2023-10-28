@@ -162,6 +162,3 @@ data:
     show-plugins = false
   forwarding.secret: |
     topi
-  rcon.toml: |
-    rcon-port = "25575"
-    rcon-password = "minecraft"

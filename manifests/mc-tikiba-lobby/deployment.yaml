@@ -49,7 +49,8 @@ spec:
           value: topi_banana,tikiba7
         - name: PULGINS
           value: >-
-            https://cdn-raw.modrinth.com/data/1u6JkXh5/versions/ans4Koju/worldedit-bukkit-7.3.0-beta-02.jar
+            https://cdn-raw.modrinth.com/data/1u6JkXh5/versions/ans4Koju/worldedit-bukkit-7.3.0-beta-02.jar,
+            https://cdn-raw.modrinth.com/data/axTqSWQA/versions/gVctECs8/Advanced-Portals-0.9.3.jar
         - name: COPY_CONFIG_DEST
           value: /data
         - name: TZ
