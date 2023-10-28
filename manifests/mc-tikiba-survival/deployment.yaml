@@ -89,7 +89,7 @@ spec:
         - name: BACKUP_NAME
           value: "tikiba-survival"
         - name: BACKUP_INTERVAL
-          value: "6h"
+          value: "1h"
         - name: RCON_PASSWORD
           value: "minecraft"
         - name: RCON_RETRIES
@@ -98,14 +98,6 @@ spec:
           value: "0"
         - name: TZ
           value: Asia/Tokyo
-        - name: EXCLUDES
-          value: >-
-            .*,
-            ops.json,
-            *.jar,
-            cache,
-            logs,
-            *.tmp
         volumeMounts:
         - name: mc-tikiba-raw
           mountPath: /data
