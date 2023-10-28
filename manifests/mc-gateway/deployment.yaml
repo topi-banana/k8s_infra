@@ -43,7 +43,8 @@ spec:
           value: VELOCITY
         - name: PLUGINS
           value: >-
-            https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/4.8.0/PAPER/ViaVersion-4.8.0.jar
+            https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/4.8.0/PAPER/ViaVersion-4.8.0.jar,
+            https://github.com/ygtdmn/VelocityRcon/releases/download/v1.1/VelocityRcon.jar
         - name: ENABLE_RCON
           value: VELOCITY
         - name: RCON_PORT
