@@ -21,10 +21,10 @@ spec:
         - containerPort: 7681
         volumeMounts:
         - mountPath: /mnt
-          name: tikiba-buckups
+          name: tikiba-backups
           subPath: tikiba/backups
       volumes:
-      - name: tikiba-buckups
+      - name: tikiba-backups
         nfs:
           server: 10.43.20.49
           path: /
