@@ -72,6 +72,8 @@ spec:
         - containerPort: 25565
           name: mc-tikiba
         volumeMounts:
+        - name: RCON_PASSWORD
+          value: "minecraft"
         - name: mc-tikiba-config
           mountPath: /config/server.properties
           subPath: server.properties
