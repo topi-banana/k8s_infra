@@ -87,8 +87,10 @@ spec:
             memory: 4G
       - name: mc-tikiba-backup
         image: itzg/mc-backup
-        command: >
-          /bin/sh -c
+        command:
+        - "/bin/sh"
+        - "-c"
+        - >
           "backup loop &
           while [ `date +"%Y%m%d%H%M"` -lt `date +"%Y%m%d"`1155 ]
           do
