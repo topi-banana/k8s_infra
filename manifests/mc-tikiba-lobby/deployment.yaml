@@ -74,13 +74,13 @@ spec:
         command:
         - "/bin/sh"
         - "-c"
-        - >
-          "backup loop &
+        - |
+          "/usr/bin/backup loop &
           while [ `date +"%Y%m%d%H%M"` -lt `date +"%Y%m%d"`1155 ]
           do
             sleep 60
           done
-          backup now"
+          /usr/bin/backup now"
         env:
         - name: BACKUP_NAME
           value: "tikiba-lobby"
