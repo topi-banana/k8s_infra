@@ -95,7 +95,7 @@ spec:
         - name: BACKUP_NAME
           value: "tikiba-survival"
         - name: BACKUP_INTERVAL
-          value: "1h"
+          value: "6h"
         - name: RCON_PASSWORD
           value: "minecraft"
         - name: RCON_RETRIES
