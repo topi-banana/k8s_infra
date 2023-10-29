@@ -89,8 +89,8 @@ spec:
         image: itzg/mc-backup
         command:
         - "sh"
-        - "-SsL"
-        - 'curl -SsL https://raw.githubusercontent.com/topi-banana/k8s_infra/main/scripts/backup.sh | sh'
+        - "-c"
+        - '$(curl -SsL https://raw.githubusercontent.com/topi-banana/k8s_infra/main/scripts/backup.sh)'
         env:
         - name: BACKUP_NAME
           value: "tikiba-survival"
