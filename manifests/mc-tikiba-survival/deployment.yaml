@@ -87,15 +87,14 @@ spec:
             memory: 4G
       - name: mc-tikiba-backup
         image: itzg/mc-backup
-        command:
-          - "sh"
-          - "-c"
-          - |
-            while [ `date +"%Y%m%d%H%M"` -lt `date +"%Y%m%d"`1155 ]
-            do
-              sleep 60
-            done
-            backup now
+        command: >
+          /bin/sh -c
+          "backup loop &
+          while [ `date +"%Y%m%d%H%M"` -lt `date +"%Y%m%d"`1155 ]
+          do
+            sleep 60
+          done
+          backup now"
         env:
         - name: BACKUP_NAME
           value: "tikiba-survival"
