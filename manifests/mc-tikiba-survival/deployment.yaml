@@ -88,15 +88,11 @@ spec:
       - name: mc-tikiba-backup
         image: itzg/mc-backup
         command:
-        - "/bin/sh"
-        - "-c"
-        - |
-          "/usr/bin/backup loop &
-          while [ `date +"%Y%m%d%H%M"` -lt `date +"%Y%m%d"`1155 ]
-          do
-            sleep 60
-          done
-          /usr/bin/backup now"
+        - "curl"
+        - "-SsL"
+        - "https://raw.githubusercontent.com/topi-banana/k8s_infra/main/scripts/backup.sh"
+        - "|"
+        - "sh"
         env:
         - name: BACKUP_NAME
           value: "tikiba-survival"
