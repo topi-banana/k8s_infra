@@ -28,7 +28,7 @@ spec:
           mountPath: /data
         - name: mc-tikiba-backups
           mountPath: /backups
-          subPath: tikiba/backups
+          subPath: tikiba/backups/lobby
       containers:
       - name: mc-tikiba-main
         image: itzg/minecraft-server:java17
@@ -71,6 +71,15 @@ spec:
           mountPath: /data
       - name: mc-tikiba-backup
         image: itzg/mc-backup
+        command:
+          - "sh"
+          - "-c"
+          - |
+            while [ `date +"%Y%m%d%H%M"` -lt `date +"%Y%m%d"`1155 ]
+            do
+              sleep 60
+            done
+            backup now
         env:
         - name: BACKUP_NAME
           value: "tikiba-lobby"
@@ -89,7 +98,7 @@ spec:
           mountPath: /data
         - name: mc-tikiba-backups
           mountPath: /backups
-          subPath: tikiba/backups
+          subPath: tikiba/backups/lobby
       volumes:
         - name: mc-tikiba-config
           configMap:
