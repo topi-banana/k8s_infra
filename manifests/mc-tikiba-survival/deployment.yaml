@@ -89,9 +89,11 @@ spec:
       - name: mc-tikiba-backup
         image: itzg/mc-backup
         command:
-        - "sh"
-        - "-c"
-        - '$(curl -SsL https://raw.githubusercontent.com/topi-banana/k8s_infra/main/scripts/backup.sh)'
+        - bash
+        - -c
+        - |
+          echo "55 11 * * * bash -c 'rcon-cli kick @p && backup now'" | crontab -
+          backup loop
         env:
         - name: BACKUP_NAME
           value: "tikiba-survival"
