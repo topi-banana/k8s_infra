@@ -19,6 +19,7 @@ spec:
       labels:
         app: mc-tikiba-survival
     spec:
+      nodeName: topi-server00
       initContainers:
       - name: mc-tikiba-restore-backup
         image: itzg/mc-backup
