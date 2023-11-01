@@ -20,16 +20,16 @@ spec:
         app: mc-tikiba-survival
     spec:
       nodeName: topi-server00
-      initContainers:
-      - name: mc-tikiba-restore-backup
-        image: itzg/mc-backup
-        command: ["restore-tar-backup"]
-        volumeMounts:
-        - name: mc-tikiba-raw
-          mountPath: /data
-        - name: mc-tikiba-backups
-          mountPath: /backups
-          subPath: tikiba/backups/survival
+      # initContainers:
+      # - name: mc-tikiba-restore-backup
+      #   image: itzg/mc-backup
+      #   command: ["restore-tar-backup"]
+      #   volumeMounts:
+      #   - name: mc-tikiba-raw
+      #     mountPath: /data
+      #   - name: mc-tikiba-backups
+      #     mountPath: /backups
+      #     subPath: tikiba/backups/survival
       containers:
       - name: mc-tikiba-main
         image: itzg/minecraft-server:java17
