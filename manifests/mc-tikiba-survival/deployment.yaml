@@ -88,12 +88,51 @@ spec:
             memory: 4G
       - name: mc-tikiba-backup
         image: itzg/mc-backup
+        env:
+        - name: BACKUP_NAME
+          value: "tikiba-survival"
+        - name: BACKUP_INTERVAL
+          value: "6h"
+        - name: RCON_PASSWORD
+          value: "minecraft"
+        - name: RCON_RETRIES
+          value: "-1"
+        - name: INITIAL_DELAY
+          value: "0"
+        - name: TZ
+          value: Asia/Tokyo
+        volumeMounts:
+        - name: mc-tikiba-raw
+          mountPath: /data
+        - name: mc-tikiba-backups
+          mountPath: /backups
+          subPath: tikiba/backups/survival
+      - name: mc-tikiba-backup-beforereboot
+        image: itzg/mc-backup
         command:
         - bash
         - -c
         - |
-          echo "55 11 * * * bash -c 'rcon-cli kick @p && backup now'" | crontab -
-          backup loop
+          while [ `date +"%Y%m%d%H%M"` -lt `date +"%Y%m%d"`1155 ]
+          do
+            echo `date +"%Y%m%d%H%M"`
+            sleep 20
+          done
+          rcon-cli say あと１分で再起動を行います。
+          sleep 30
+          rcon-cli say あと30秒で再起動を行います。
+          sleep 20
+          rcon-cli say あと10秒で再起動を行います。
+          sleep 7
+          rcon-cli say 3
+          sleep 1
+          rcon-cli say 2
+          sleep 1
+          rcon-cli say 1
+          sleep 1
+          rcon-cli kick @p
+          backup now
+          sleep infinity
         env:
         - name: BACKUP_NAME
           value: "tikiba-survival"

@@ -118,6 +118,12 @@ curl -sfL https://get.k3s.io | sh -s - agent \
   kubectl -n kube-system get pod -o wide -l app=csi-smb-node
   ```
 
+- admin.~.com (Ingressやめました)
+```
+kubectl create secret generic tunnel-credentials --from-file=credentials.json=./CF-tunnel-cret.json --namespace=topi-system
+```
+[cloudflaredをk8s上に移行させてみる - zenn](https://zenn.dev/xpadev/articles/276cce96beaacf)
+
 ## manifests - official guide
 - [MetalLB (LoadBalancer)](https://metallb.universe.tf/installation/#installation-by-manifest)
 - ~~[Calico (CNI)](https://github.com/projectcalico/calico/blob/v3.26.3/manifests/calico.yaml)~~ ※k3s付属のFlannelを使うため不要
