@@ -97,7 +97,7 @@ spec:
           name: mc-tikiba-lobby-config
       - name: mc-tikiba-raw
         hostPath:
-          path: /home/tikiba
+          path: /home/tikiba/lobby
           type: DirectoryOrCreate
       - name: mc-tikiba-backups
         persistentVolumeClaim:
